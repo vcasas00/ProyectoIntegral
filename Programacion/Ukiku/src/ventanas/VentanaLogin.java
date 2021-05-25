@@ -12,14 +12,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class VentanaLogin extends JFrame {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
 	private JTextField textFieldContraseña;
+	private JLabel lblUkiku;
+	private JButton btnLogin;
+	private JButton btnRegistrarse;
+	private JLabel lblUsuario;
+	private JLabel lblContrasea;
+	private JLabel lblSiNoEstas;
 
 	/**
 	 * Launch the application.
@@ -42,16 +45,13 @@ public class VentanaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblUkiku = new JLabel("Ukiku");
+		lblUkiku = new JLabel("Ukiku");
 		lblUkiku.setFont(new Font("Yu Gothic", Font.BOLD, 30));
 		lblUkiku.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUkiku.setBounds(93, 11, 112, 48);
 		contentPane.add(lblUkiku);
 
-		/**
-		 * Boton para hacer el login.
-		 */
-		JButton btnLogin = new JButton("Login");
+		btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO funcionalidad login
@@ -60,10 +60,7 @@ public class VentanaLogin extends JFrame {
 		btnLogin.setBounds(103, 138, 104, 23);
 		contentPane.add(btnLogin);
 
-		/**
-		 * Boton para registrarse.
-		 */
-		JButton btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO funcionalidad de registrarse
@@ -82,17 +79,17 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(textFieldContraseña);
 		textFieldContraseña.setColumns(10);
 
-		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblUsuario.setBounds(10, 73, 46, 14);
 		contentPane.add(lblUsuario);
 
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblContrasea.setBounds(10, 110, 73, 14);
 		contentPane.add(lblContrasea);
 		
-		JLabel lblSiNoEstas = new JLabel("Si no estas registrado... \u00A1Reg\u00EDstrate!");
+		lblSiNoEstas = new JLabel("Si no estas registrado... \u00A1Reg\u00EDstrate!");
 		lblSiNoEstas.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblSiNoEstas.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSiNoEstas.setBounds(50, 182, 217, 23);
