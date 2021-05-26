@@ -1,6 +1,5 @@
 package ventanas;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -8,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 import clases.Usuario;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -16,6 +17,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author René, Vicent, Joaquín
+ *
+ */
 public class Registro extends JFrame {
 
 	/**
@@ -25,6 +31,10 @@ public class Registro extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldnombre;
 	private JTextField textFieldContraseña;
+	private JLabel lblUkiku;
+	private JLabel lblUsuario;
+	private JLabel lblContrasea;
+	private JButton btnRegistrarse;
 
 	/**
 	 * Launch the application.
@@ -47,18 +57,18 @@ public class Registro extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblUkiku = new JLabel("Ukiku");
+		lblUkiku = new JLabel("Ukiku");
 		lblUkiku.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUkiku.setFont(new Font("Yu Gothic", Font.BOLD, 30));
 		lblUkiku.setBounds(112, 27, 112, 48);
 		contentPane.add(lblUkiku);
 		
-		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblUsuario.setBounds(10, 88, 46, 14);
 		contentPane.add(lblUsuario);
 		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblContrasea.setBounds(10, 129, 73, 14);
 		contentPane.add(lblContrasea);
@@ -73,11 +83,12 @@ public class Registro extends JFrame {
 		textFieldContraseña.setBounds(93, 127, 144, 20);
 		contentPane.add(textFieldContraseña);
 		
-		JButton btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Usuario u = new Usuario();
 				u.registrarse(textFieldnombre.getText(), textFieldContraseña.getText());
+				JOptionPane.showMessageDialog(rootPane, "Añadido correctamente");
 			}
 		});
 		btnRegistrarse.setBounds(112, 191, 106, 23);

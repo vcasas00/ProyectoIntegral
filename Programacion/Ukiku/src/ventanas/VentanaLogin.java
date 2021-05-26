@@ -15,6 +15,9 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Toolkit;
 
 public class VentanaLogin extends JFrame {
 	
@@ -22,12 +25,12 @@ public class VentanaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
 	private JTextField textFieldContraseña;
-	private JLabel lblUkiku;
 	private JButton btnLogin;
 	private JButton btnRegistrarse;
 	private JLabel lblUsuario;
-	private JLabel lblContrasea;
 	private JLabel lblSiNoEstas;
+	private JLabel lblNewLabel;
+	private JLabel lblContrasea;
 
 	/**
 	 * Launch the application.
@@ -43,18 +46,13 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("K:\\PI\\Programacion\\Ukiku\\src\\img\\ukikulogo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 320, 300);
+		setBounds(100, 100, 415, 361);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		lblUkiku = new JLabel("Ukiku");
-		lblUkiku.setFont(new Font("Yu Gothic", Font.BOLD, 30));
-		lblUkiku.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUkiku.setBounds(93, 11, 112, 48);
-		contentPane.add(lblUkiku);
 
 		btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
@@ -70,7 +68,7 @@ public class VentanaLogin extends JFrame {
 				
 			}
 		});
-		btnLogin.setBounds(103, 138, 104, 23);
+		btnLogin.setBounds(148, 183, 104, 23);
 		contentPane.add(btnLogin);
 
 		btnRegistrarse = new JButton("Registrarse");
@@ -80,33 +78,40 @@ public class VentanaLogin extends JFrame {
 				r.setVisible(true);
 			}
 		});
-		btnRegistrarse.setBounds(103, 227, 104, 23);
+		btnRegistrarse.setBounds(148, 261, 104, 23);
 		contentPane.add(btnRegistrarse);
 
 		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(93, 70, 144, 20);
+		textFieldUsuario.setBounds(138, 115, 144, 20);
 		contentPane.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 
 		textFieldContraseña = new JPasswordField();
-		textFieldContraseña.setBounds(93, 107, 144, 20);
+		textFieldContraseña.setBounds(138, 152, 144, 20);
 		contentPane.add(textFieldContraseña);
 		textFieldContraseña.setColumns(10);
 
-		lblUsuario = new JLabel("Usuario");
-		lblUsuario.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblUsuario.setBounds(10, 73, 46, 14);
+		lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setBackground(Color.GRAY);
+		lblUsuario.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblUsuario.setBounds(10, 111, 73, 23);
 		contentPane.add(lblUsuario);
-
-		lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblContrasea.setBounds(10, 110, 73, 14);
-		contentPane.add(lblContrasea);
 		
 		lblSiNoEstas = new JLabel("Si no estas registrado... \u00A1Reg\u00EDstrate!");
-		lblSiNoEstas.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblSiNoEstas.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblSiNoEstas.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSiNoEstas.setBounds(50, 182, 217, 23);
+		lblSiNoEstas.setBounds(47, 227, 323, 23);
 		contentPane.add(lblSiNoEstas);
+		
+		lblContrasea = new JLabel("Contrase\u00F1a:");
+		lblContrasea.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblContrasea.setBackground(Color.GRAY);
+		lblContrasea.setBounds(10, 152, 104, 23);
+		contentPane.add(lblContrasea);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("K:\\PI\\Programacion\\Ukiku\\src\\img\\xlarge_ukiku.png"));
+		lblNewLabel.setBounds(21, 0, 349, 107);
+		contentPane.add(lblNewLabel);
 	}
 }

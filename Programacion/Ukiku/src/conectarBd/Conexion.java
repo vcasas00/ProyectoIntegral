@@ -10,9 +10,9 @@ public class Conexion {
 
 	private Connection conexion;
 	private static final String driver = "com.mysql.jdbc.Driver";
-	private static final String user = "root";
-	private static final String password = "";
-	private static final String url = "jdbc:mysql://localhost:3306/ukiku_bd";
+	private static final String user = "conecta";
+	private static final String password = "Qwert_12";
+	private static final String url = "jdbc:mysql://54.85.137.151/ukiku_bd?characterEncoding=utf8";
 	public Statement s;
 	public int rs;
 	public ResultSet rs1;
