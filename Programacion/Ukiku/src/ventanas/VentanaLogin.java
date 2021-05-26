@@ -2,8 +2,13 @@ package ventanas;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+
+import clases.Usuario;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -55,6 +60,14 @@ public class VentanaLogin extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO funcionalidad login
+			Usuario u = new Usuario(textFieldUsuario.getText(), textFieldContraseña.getText());
+			
+			if(u.acceder()) {
+				JOptionPane.showMessageDialog(rootPane, "Login Correcto");
+			} else {
+				JOptionPane.showMessageDialog(rootPane, "Login Incorrecto");
+			}
+				
 			}
 		});
 		btnLogin.setBounds(103, 138, 104, 23);
@@ -64,6 +77,7 @@ public class VentanaLogin extends JFrame {
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO funcionalidad de registrarse
+				
 			}
 		});
 		btnRegistrarse.setBounds(103, 227, 104, 23);
@@ -74,7 +88,7 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 
-		textFieldContraseña = new JTextField();
+		textFieldContraseña = new JPasswordField();
 		textFieldContraseña.setBounds(93, 107, 144, 20);
 		contentPane.add(textFieldContraseña);
 		textFieldContraseña.setColumns(10);

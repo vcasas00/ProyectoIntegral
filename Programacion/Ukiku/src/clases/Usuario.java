@@ -1,5 +1,9 @@
 package clases;
 
+import java.sql.SQLException;
+
+import conectarBd.Conexion;
+
 /**
  * 
  * @author René, Vicent, Joaquín
@@ -75,7 +79,31 @@ public class Usuario {
 	 *                   Comprueba que el nombre y contraseña introducidos por
 	 *                   parametros coincidan con los de la base de datos.
 	 */
-	public void acceder(String nombre, String contraseña) {
+	public boolean acceder() {
+
+		Conexion c = new Conexion();
+		boolean acceso = false;
+		String sql = "select nombre, contraseña from usuario where nombre= '" + nombre + "' AND contraseña= '"
+				+ contraseña + "'";
+		try {
+			
+			c.rs = c.s.executeQuery(sql);
+			
+			if(c.rs.next()) {
+				
+				acceso = true;
+				
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		return acceso;
 
 	}
 
