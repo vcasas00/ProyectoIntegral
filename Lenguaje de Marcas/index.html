@@ -1,35 +1,58 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Dimension by HTML5 UP</title>
+		<title>UKIKU | Gestiona tu negocio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Favicon -->
+
+		<!-- Script Form -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+  </script>
+<script>
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/13008/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Gracias por su opinión :)")
+        },
+        error: function(){
+          alert("Se ha producido un error :(")
+        }
+    });
+}
+</script>
+
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
+		
 			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
+						
+							<span><img  width=200px src="images/ukikulogo.png" alt=""/></span>
+						
 						<div class="content">
 							<div class="inner">
-								<h1>Dimension</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+								<h1>U K I K U</h1>
+								<p>Gestiona tu negocio de forma rápida, eficaz y segura.</p>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#inicio">Inicio</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#inicio">INICIO</a></li>
+								<li><a href="#demo">DEMO</a></li>
+								<li><a href="#sobre">NOSOTROS</a></li>
+								<li><a href="#contacto">CONTACTO</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -40,23 +63,22 @@
 
 						<!-- Intro -->
 							<article id="inicio">
-								<h2 class="major">Inicio</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+								<h2 class="major">INICIO</h2>
+								<span class="image main"><img src="images/xlarge_ukiku.jpg" alt="" /></span>
+								<p>Desde tiempos inmemoriables la humanidad ha tenido la necesidad de gestionar sus negocios, por eso estamos aqui nosotros, UKIKU. La nueva aplicacion que revolucionara la gestión de empresas con una rapidez y eficacia nuca antes vistas. Podrán gestionar sus clientes, productos y proveedores, al mismo tiempo y contaran con una copia de seguridad de 48 en caso de perdida de datos. Por si queda alguna duda, os dejamos una <a href="#demo">increíble demostración</a> en la que os mostramos como funciona la app.</p>
 								
 
 							</article>
 
 						<!-- DEMO -->
-							<article id="work">
+							<article id="demo">
 								<h2 class="major">DEMO</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+								<p>Aqui os dejamos un breve video de como y el porque usar nuestra aplicación</p>
+								<p>INSERTAR VIDEO DEMO</p>
 							</article>
 
 						<!-- Sobre Nosotros -->
-							<article id="about">
+							<article id="sobre">
 								<h2 class="major">Sobre Nosotros</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
 								<p>Somos tres estudiantes de Desarrollo de Aplicaciones Multiplataforma, hemos desarrollado nuestra App UKIKU, para que la gente pueda gestionar su negocio eficazmente.</p>
@@ -66,28 +88,29 @@
 							</article>
 
 						<!-- Contact -->
-							<article id="contact">
+							<article id="contacto">
 								<h2 class="major">Contacto</h2>
-								<form method="post" action="#">
+								<form method="post" id="myForm">
 									<div class="fields">
 										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<label for="name">Nombre Completo</label>
+											<input type="text" name="name" id="name" placeholder="Tu Nombre Completo"/>
 										</div>
 										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<label for="email">Correo Electronico</label>
+											<input type="text" name="email" id="email" placeholder="ejemplo@ejemplo.com" />
 										</div>
 										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
+											<label for="message">Mensaje</label>
+											<textarea name="message" id="message" rows="4" placeholder="Deja tu opinión aquí..."></textarea>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
+										<li><input type="button" value="Enviar" onclick="SubForm()"/></li>
+										<li><input type="reset" value="Borrar" /></li>
 									</ul>
 								</form>
+
 								<ul class="icons">
 									<li><a href="https://twitter.com/UkikuP" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="https://www.facebook.com/profile.php?id=100068748211612" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -100,11 +123,13 @@
 
 				<!-- Footer -->
 					<footer id="footer">
+						<p>PUEDES DESCARGAR NUESTRA APLIACION PULSANDO ESTE <a href=""></a>ENLACE</p>
 						<p class="major">Todos los derechos estan reservados a UKIKU &copy;</p>
 					</footer>
 
 			</div>
 		<!-- Scripts -->
+
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
