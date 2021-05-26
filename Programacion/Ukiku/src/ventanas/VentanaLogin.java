@@ -60,9 +60,9 @@ public class VentanaLogin extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO funcionalidad login
-			Usuario u = new Usuario(textFieldUsuario.getText(), textFieldContraseña.getText());
+			Usuario u = new Usuario();
 			
-			if(u.acceder()) {
+			if(u.acceder(textFieldUsuario.getText(), textFieldContraseña.getText())) {
 				JOptionPane.showMessageDialog(rootPane, "Login Correcto");
 			} else {
 				JOptionPane.showMessageDialog(rootPane, "Login Incorrecto");
@@ -76,8 +76,8 @@ public class VentanaLogin extends JFrame {
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO funcionalidad de registrarse
-				
+				Registro r = new Registro();
+				r.setVisible(true);
 			}
 		});
 		btnRegistrarse.setBounds(103, 227, 104, 23);

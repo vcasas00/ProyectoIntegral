@@ -79,7 +79,7 @@ public class Usuario {
 	 *                   Comprueba que el nombre y contraseña introducidos por
 	 *                   parametros coincidan con los de la base de datos.
 	 */
-	public boolean acceder() {
+	public boolean acceder(String nombre, String contraseña) {
 
 		Conexion c = new Conexion();
 		boolean acceso = false;
@@ -87,9 +87,9 @@ public class Usuario {
 				+ contraseña + "'";
 		try {
 			
-			c.rs = c.s.executeQuery(sql);
+			c.rs1 = c.s.executeQuery(sql);
 			
-			if(c.rs.next()) {
+			if(c.rs1.next()) {
 				
 				acceso = true;
 				
@@ -116,6 +116,18 @@ public class Usuario {
 	 */
 	public void registrarse(String nombre, String contraseña) {
 
+		Conexion c = new Conexion();
+		String sql = "insert into usuario(Nombre, Contraseña)"+" values ('"+nombre+"', '"+contraseña+"')" ;
+		try {
+			
+			c.rs = c.s.executeUpdate(sql);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		}	
+		
 	}
 
 }

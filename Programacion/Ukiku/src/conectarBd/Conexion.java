@@ -14,7 +14,8 @@ public class Conexion {
 	private static final String password = "";
 	private static final String url = "jdbc:mysql://localhost:3306/ukiku_bd";
 	public Statement s;
-	public ResultSet rs;
+	public int rs;
+	public ResultSet rs1;
 
 	public Conexion() {
 
