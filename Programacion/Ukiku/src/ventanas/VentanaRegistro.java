@@ -21,7 +21,7 @@ import java.awt.Toolkit;
  * @author René, Vicent, Joaquín
  *
  */
-public class Registro extends JFrame {
+public class VentanaRegistro extends JFrame {
 
 	/**
 	 * 
@@ -49,8 +49,8 @@ public class Registro extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Registro() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Registro.class.getResource("/img/logorene.png")));
+	public VentanaRegistro() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 403, 300);
@@ -61,7 +61,7 @@ public class Registro extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblUkiku = new JLabel("");
-		lblUkiku.setIcon(new ImageIcon(Registro.class.getResource("/img/xlarge_ukiku.png")));
+		lblUkiku.setIcon(new ImageIcon(VentanaRegistro.class.getResource("/img/xlarge_ukiku.png")));
 		lblUkiku.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUkiku.setFont(new Font("Yu Gothic", Font.BOLD, 30));
 		lblUkiku.setBounds(0, 0, 388, 75);

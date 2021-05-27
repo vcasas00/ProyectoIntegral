@@ -68,7 +68,7 @@ public class VentanaLogin extends JFrame {
 
 				if (u.acceder(textFieldUsuario.getText(), textFieldContraseña.getText())) {
 					JOptionPane.showMessageDialog(rootPane, "Login Correcto");
-					Elegir l = new Elegir();
+					VentanaEleccion l = new VentanaEleccion();
 					l.setVisible(true);
 					setVisible(false);
 				} else {
@@ -85,7 +85,7 @@ public class VentanaLogin extends JFrame {
 		btnRegistrarse.setBackground(new Color(128, 128, 128));
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Registro r = new Registro();
+				VentanaRegistro r = new VentanaRegistro();
 				r.setVisible(true);
 				dispose();
 			}

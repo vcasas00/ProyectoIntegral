@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Elegir extends JFrame {
+public class VentanaEleccion extends JFrame {
 
 	/**
 	 * 
@@ -37,10 +37,10 @@ public class Elegir extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Elegir() {
+	public VentanaEleccion() {
 		setResizable(false);
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Elegir.class.getResource("/img/logorene.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaEleccion.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 393, 181);
 		contentPane = new JPanel();
@@ -59,7 +59,7 @@ public class Elegir extends JFrame {
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Clientes c =new Clientes();
+				VentanaClientes c =new VentanaClientes();
 				c.setVisible(true);
 				dispose();
 				
@@ -73,7 +73,7 @@ public class Elegir extends JFrame {
 		btnProveedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Proveedores pov = new Proveedores();
+				VentanaProveedores pov = new VentanaProveedores();
 				pov.setVisible(true);
 				dispose();
 				
@@ -87,7 +87,7 @@ public class Elegir extends JFrame {
 		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Productos p = new Productos();
+				VentanaProductos p = new VentanaProductos();
 				p.setVisible(true);
 				dispose();
 				

@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Productos extends JFrame {
+public class VentanaProductos extends JFrame {
 
 	/**
 	 * 
@@ -32,8 +32,8 @@ public class Productos extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Productos() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Productos.class.getResource("/img/logorene.png")));
+	public VentanaProductos() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProductos.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
