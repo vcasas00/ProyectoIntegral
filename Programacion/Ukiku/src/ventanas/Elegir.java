@@ -66,7 +66,7 @@ public class Elegir extends JFrame {
 			}
 		});
 		btnClientes.setBackground(new Color(135, 206, 250));
-		btnClientes.setBounds(0, 93, 115, 59);
+		btnClientes.setBounds(10, 72, 115, 59);
 		contentPane.add(btnClientes);
 		
 		btnProveedor = new JButton("Proveedor");
@@ -80,7 +80,7 @@ public class Elegir extends JFrame {
 			}
 		});
 		btnProveedor.setBackground(new Color(107, 142, 35));
-		btnProveedor.setBounds(137, 93, 115, 59);
+		btnProveedor.setBounds(135, 72, 115, 59);
 		contentPane.add(btnProveedor);
 		
 		btnProductos = new JButton("Productos");
@@ -94,7 +94,7 @@ public class Elegir extends JFrame {
 			}
 		});
 		btnProductos.setBackground(new Color(255, 105, 180));
-		btnProductos.setBounds(272, 93, 115, 59);
+		btnProductos.setBounds(260, 72, 115, 59);
 		contentPane.add(btnProductos);
 		
 	}
