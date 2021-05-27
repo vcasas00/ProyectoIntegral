@@ -52,6 +52,17 @@ public class Ukiku extends Usuario{
 		this.listarProveedor = listarProveedor;
 		
 	}
-
+	
+	public void accederAClientes() {
+		
+	}
+	
+	public void accederAProveedores() {
+		
+	}
+	
+	public void accederAProductos() {
+		
+	}
 	
 }

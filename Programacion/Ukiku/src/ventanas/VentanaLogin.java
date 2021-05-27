@@ -68,6 +68,9 @@ public class VentanaLogin extends JFrame {
 
 				if (u.acceder(textFieldUsuario.getText(), textFieldContraseña.getText())) {
 					JOptionPane.showMessageDialog(rootPane, "Login Correcto");
+					Elegir l = new Elegir();
+					l.setVisible(true);
+					setVisible(false);
 				} else {
 					JOptionPane.showMessageDialog(rootPane, "Login Incorrecto");
 				}
@@ -84,6 +87,7 @@ public class VentanaLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Registro r = new Registro();
 				r.setVisible(true);
+				dispose();
 			}
 		});
 		btnRegistrarse.setBounds(138, 288, 144, 23);

@@ -86,6 +86,9 @@ public class Registro extends JFrame {
 					Usuario u = new Usuario();
 					u.registrarse(textFieldnombre.getText(), textFieldContraseña.getText());
 					JOptionPane.showMessageDialog(rootPane, "Añadido correctamente");
+					VentanaLogin v = new VentanaLogin();
+					v.setVisible(true);
+					setVisible(false);
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(rootPane, "Error al registrar el usuario");
 					e.printStackTrace();
