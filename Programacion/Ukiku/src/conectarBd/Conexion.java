@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class Conexion {
 
-	private Connection conexion;
+	private Connection conexion = null;
 	private static final String driver = "com.mysql.jdbc.Driver";
 	private static final String user = "conecta";
 	private static final String password = "Qwert_12";
@@ -18,8 +18,6 @@ public class Conexion {
 	public ResultSet rs1;
 
 	public Conexion() {
-
-		conexion = null;
 
 		try {
 

@@ -109,7 +109,7 @@ public class VentanaLogin extends JFrame {
 		lblUsuario.setBounds(55, 142, 73, 23);
 		contentPane.add(lblUsuario);
 
-		lblSiNoEstas = new JLabel("Si no estas registrado... \u00A1Reg\u00EDstrate!");
+		lblSiNoEstas = new JLabel("Si no est\u00E1s registrado... \u00A1Reg\u00EDstrate!");
 		lblSiNoEstas.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblSiNoEstas.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSiNoEstas.setBounds(55, 242, 323, 23);
@@ -126,7 +126,7 @@ public class VentanaLogin extends JFrame {
 		lblNewLabel.setBounds(21, 0, 349, 107);
 		contentPane.add(lblNewLabel);
 
-		lblInicioDeSesion = new JLabel("Inicio de sesion");
+		lblInicioDeSesion = new JLabel("Inicio de sesi\u00F3n");
 		lblInicioDeSesion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInicioDeSesion.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblInicioDeSesion.setBounds(47, 108, 323, 23);

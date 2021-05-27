@@ -101,7 +101,7 @@ public class Usuario {
 			
 		}
 		
-		
+		c.desconectar();
 		
 		return acceso;
 
@@ -126,7 +126,9 @@ public class Usuario {
 			
 			e.printStackTrace();
 			
-		}	
+		}
+		
+		c.desconectar();
 		
 	}
 
