@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Elegir extends JFrame {
 
@@ -54,16 +56,43 @@ public class Elegir extends JFrame {
 		contentPane.add(lblEligeAQue_1);
 		
 		btnClientes = new JButton("Clientes");
+		btnClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Clientes c =new Clientes();
+				c.setVisible(true);
+				dispose();
+				
+			}
+		});
 		btnClientes.setBackground(new Color(135, 206, 250));
 		btnClientes.setBounds(0, 93, 115, 59);
 		contentPane.add(btnClientes);
 		
 		btnProveedor = new JButton("Proveedor");
+		btnProveedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Proveedores pov = new Proveedores();
+				pov.setVisible(true);
+				dispose();
+				
+			}
+		});
 		btnProveedor.setBackground(new Color(107, 142, 35));
 		btnProveedor.setBounds(137, 93, 115, 59);
 		contentPane.add(btnProveedor);
 		
 		btnProductos = new JButton("Productos");
+		btnProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Productos p = new Productos();
+				p.setVisible(true);
+				dispose();
+				
+			}
+		});
 		btnProductos.setBackground(new Color(255, 105, 180));
 		btnProductos.setBounds(272, 93, 115, 59);
 		contentPane.add(btnProductos);
