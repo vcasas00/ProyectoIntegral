@@ -50,6 +50,7 @@ public class VentanaRegistro extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistro() {
+		setTitle("Registro - Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

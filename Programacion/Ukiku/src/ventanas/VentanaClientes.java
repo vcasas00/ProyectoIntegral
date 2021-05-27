@@ -3,6 +3,9 @@ package ventanas;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.Ciente;
+
 import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -44,7 +47,7 @@ public class VentanaClientes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox<VentanaClientes> comboBox = new JComboBox<VentanaClientes>();
+		JComboBox<Ciente> comboBox = new JComboBox<Ciente>();
 		comboBox.setBounds(10, 11, 303, 31);
 		contentPane.add(comboBox);
 		

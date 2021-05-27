@@ -38,6 +38,7 @@ public class VentanaEleccion extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaEleccion() {
+		setTitle("Eleccion de registro - Ukiku");
 		setResizable(false);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaEleccion.class.getResource("/img/logorene.png")));

@@ -47,6 +47,7 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
+		setTitle("Login - Ukiku");
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);

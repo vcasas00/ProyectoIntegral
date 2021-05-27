@@ -4,12 +4,17 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.Producto;
+
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import clases.Ciente;
+import javax.swing.JTable;
 
 public class VentanaProductos extends JFrame {
 
@@ -18,6 +23,7 @@ public class VentanaProductos extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -33,34 +39,61 @@ public class VentanaProductos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaProductos() {
+		setTitle("Productos - Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProductos.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 461, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<Ciente> comboBox = new JComboBox<Ciente>();
 		comboBox.setBounds(10, 11, 303, 31);
 		contentPane.add(comboBox);
 		
 		JButton btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(335, 64, 89, 23);
+		btnModificar.setForeground(Color.WHITE);
+		btnModificar.setBackground(Color.GRAY);
+		btnModificar.setBounds(323, 57, 119, 23);
 		contentPane.add(btnModificar);
 		
-		JButton btnModificar_1 = new JButton("Eliminar");
-		btnModificar_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnModificar_1.setBounds(335, 127, 89, 23);
-		contentPane.add(btnModificar_1);
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setForeground(Color.WHITE);
+		btnEliminar.setBackground(Color.GRAY);
+		btnEliminar.setBounds(323, 91, 119, 23);
+		contentPane.add(btnEliminar);
 		
-		JButton btnModificar_2 = new JButton("Nuevo");
-		btnModificar_2.setBounds(335, 199, 89, 23);
-		contentPane.add(btnModificar_2);
+		JButton btnInsertar = new JButton("Insertar");
+		btnInsertar.setForeground(Color.WHITE);
+		btnInsertar.setBackground(Color.GRAY);
+		btnInsertar.setBounds(323, 125, 119, 23);
+		contentPane.add(btnInsertar);
+		
+		table = new JTable();
+		table.setFillsViewportHeight(true);
+		table.setColumnSelectionAllowed(true);
+		table.setCellSelectionEnabled(true);
+		table.setBounds(10, 61, 303, 189);
+		contentPane.add(table);
+		
+		JButton btnProductos = new JButton("Productos");
+		btnProductos.setForeground(Color.WHITE);
+		btnProductos.setBackground(Color.GRAY);
+		btnProductos.setBounds(323, 159, 119, 23);
+		contentPane.add(btnProductos);
+		
+		JButton btnProveedores = new JButton("Proveedores");
+		btnProveedores.setForeground(Color.WHITE);
+		btnProveedores.setBackground(Color.GRAY);
+		btnProveedores.setBounds(323, 193, 119, 23);
+		contentPane.add(btnProveedores);
+		
+		JButton btnInicio = new JButton("Cerrar sesion");
+		btnInicio.setForeground(Color.WHITE);
+		btnInicio.setBackground(Color.GRAY);
+		btnInicio.setBounds(323, 227, 119, 23);
+		contentPane.add(btnInicio);
 	}
-
 }

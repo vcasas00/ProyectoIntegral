@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VentanaProveedores extends JFrame {
 
@@ -33,6 +34,8 @@ public class VentanaProveedores extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaProveedores() {
+		setTitle("Proveedor - Ukiku");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProveedores.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
