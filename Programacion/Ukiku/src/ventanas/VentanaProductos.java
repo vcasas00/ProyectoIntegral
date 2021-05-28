@@ -88,8 +88,8 @@ public class VentanaProductos extends JFrame {
 		table.setBounds(10, 61, 303, 189);
 		contentPane.add(table);
 		
-		JButton btnProductos = new JButton("Clientes");
-		btnProductos.addActionListener(new ActionListener() {
+		JButton btnClientes = new JButton("Clientes");
+		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaClientes vc = new VentanaClientes();
@@ -98,10 +98,10 @@ public class VentanaProductos extends JFrame {
 				
 			}
 		});
-		btnProductos.setForeground(Color.WHITE);
-		btnProductos.setBackground(Color.GRAY);
-		btnProductos.setBounds(323, 159, 119, 23);
-		contentPane.add(btnProductos);
+		btnClientes.setForeground(Color.WHITE);
+		btnClientes.setBackground(Color.GRAY);
+		btnClientes.setBounds(323, 159, 119, 23);
+		contentPane.add(btnClientes);
 		
 		JButton btnProveedores = new JButton("Proveedores");
 		btnProveedores.addActionListener(new ActionListener() {

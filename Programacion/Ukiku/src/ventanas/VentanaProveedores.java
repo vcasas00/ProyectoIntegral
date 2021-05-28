@@ -88,8 +88,8 @@ public class VentanaProveedores extends JFrame {
 		table.setBounds(10, 61, 303, 189);
 		contentPane.add(table);
 		
-		JButton btnProductos = new JButton("Clientes");
-		btnProductos.addActionListener(new ActionListener() {
+		JButton btnClientes = new JButton("Clientes");
+		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaClientes vc = new VentanaClientes();
@@ -98,13 +98,13 @@ public class VentanaProveedores extends JFrame {
 				
 			}
 		});
-		btnProductos.setForeground(Color.WHITE);
-		btnProductos.setBackground(Color.GRAY);
-		btnProductos.setBounds(323, 159, 119, 23);
-		contentPane.add(btnProductos);
+		btnClientes.setForeground(Color.WHITE);
+		btnClientes.setBackground(Color.GRAY);
+		btnClientes.setBounds(323, 159, 119, 23);
+		contentPane.add(btnClientes);
 		
-		JButton btnProveedores = new JButton("Productos");
-		btnProveedores.addActionListener(new ActionListener() {
+		JButton btnProductos = new JButton("Productos");
+		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProductos vprod = new VentanaProductos();
@@ -113,10 +113,10 @@ public class VentanaProveedores extends JFrame {
 				
 			}
 		});
-		btnProveedores.setForeground(Color.WHITE);
-		btnProveedores.setBackground(Color.GRAY);
-		btnProveedores.setBounds(323, 193, 119, 23);
-		contentPane.add(btnProveedores);
+		btnProductos.setForeground(Color.WHITE);
+		btnProductos.setBackground(Color.GRAY);
+		btnProductos.setBounds(323, 193, 119, 23);
+		contentPane.add(btnProductos);
 		
 		JButton btnInicio = new JButton("Cerrar sesion");
 		btnInicio.addActionListener(new ActionListener() {

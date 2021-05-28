@@ -48,6 +48,8 @@ public class VentanaClientes extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox<Cliente> comboBox = new JComboBox<Cliente>();
+		comboBox.setForeground(Color.WHITE);
+		comboBox.setBackground(Color.GRAY);
 		comboBox.setBounds(10, 11, 303, 31);
 		contentPane.add(comboBox);
 		
@@ -132,5 +134,15 @@ public class VentanaClientes extends JFrame {
 		btnInicio.setBackground(new Color(128, 128, 128));
 		btnInicio.setBounds(323, 227, 119, 23);
 		contentPane.add(btnInicio);
+		
+		JButton btnNewButton = new JButton("Cargar");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(323, 11, 119, 31);
+		contentPane.add(btnNewButton);
 	}
 }
