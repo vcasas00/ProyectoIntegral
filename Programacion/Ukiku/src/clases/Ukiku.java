@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Ukiku extends Usuario{
 	
-	private ArrayList<Ciente> listarClientes;
+	private ArrayList<Cliente> listarClientes;
 	private ArrayList<Producto> listarProducto;
 	private ArrayList<Proveedor> listarProveedor;
 	
@@ -18,12 +18,12 @@ public class Ukiku extends Usuario{
 		
 	}
 	
-	public ArrayList<Ciente> getListarClientes() {
+	public ArrayList<Cliente> getListarClientes() {
 		
 		return listarClientes;
 		
 	}
-	public void setListarClientes(ArrayList<Ciente> listarClientes) {
+	public void setListarClientes(ArrayList<Cliente> listarClientes) {
 		
 		this.listarClientes = listarClientes;
 		

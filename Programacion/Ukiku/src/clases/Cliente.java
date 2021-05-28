@@ -1,6 +1,6 @@
 package clases;
 
-public class Ciente extends Ukiku{
+public class Cliente extends Ukiku{
 	
 	/**
 	 * Atributos
@@ -14,12 +14,12 @@ public class Ciente extends Ukiku{
 	/**
 	 * Constructores
 	 */
-	public Ciente() {
+	public Cliente() {
 	}
 	
 	
 	
-	public Ciente(String nombre, String apellido, String dni, String direccion, int telefono) {
+	public Cliente(String nombre, String apellido, String dni, String direccion, int telefono) {
 		
 		this.nombre = nombre;
 		this.apellido = apellido;
