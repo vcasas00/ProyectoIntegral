@@ -88,9 +88,14 @@ public class VentanaProductos extends JFrame {
 		table.setBounds(10, 61, 303, 189);
 		contentPane.add(table);
 		
-		JButton btnProductos = new JButton("Productos");
+		JButton btnProductos = new JButton("Clientes");
 		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				VentanaClientes vc = new VentanaClientes();
+				vc.setVisible(true);
+				dispose();
+				
 			}
 		});
 		btnProductos.setForeground(Color.WHITE);
@@ -101,6 +106,11 @@ public class VentanaProductos extends JFrame {
 		JButton btnProveedores = new JButton("Proveedores");
 		btnProveedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				VentanaProveedores vpov = new VentanaProveedores();
+				vpov.setVisible(true);
+				dispose();
+				
 			}
 		});
 		btnProveedores.setForeground(Color.WHITE);
@@ -111,6 +121,10 @@ public class VentanaProductos extends JFrame {
 		JButton btnInicio = new JButton("Cerrar sesion");
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				VentanaLogin vl = new VentanaLogin();
+				vl.setVisible(true);
+				dispose();
 				
 			}
 		});

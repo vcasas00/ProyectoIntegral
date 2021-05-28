@@ -1,16 +1,18 @@
 package ventanas;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.Proveedor;
+
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.JTable;
 
 public class VentanaProveedores extends JFrame {
 
@@ -19,6 +21,7 @@ public class VentanaProveedores extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -37,32 +40,97 @@ public class VentanaProveedores extends JFrame {
 		setTitle("Proveedor - Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProveedores.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 462, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<Proveedor> comboBox = new JComboBox<Proveedor>();
 		comboBox.setBounds(10, 11, 303, 31);
 		contentPane.add(comboBox);
 		
 		JButton btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(324, 47, 89, 23);
-		contentPane.add(btnModificar);
-		
-		JButton btnModificar_1 = new JButton("Eliminar");
-		btnModificar_1.addActionListener(new ActionListener() {
+		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnModificar_1.setBounds(324, 112, 89, 23);
-		contentPane.add(btnModificar_1);
+		btnModificar.setForeground(Color.WHITE);
+		btnModificar.setBackground(Color.GRAY);
+		btnModificar.setBounds(323, 57, 119, 23);
+		contentPane.add(btnModificar);
 		
-		JButton btnModificar_2 = new JButton("Nuevo");
-		btnModificar_2.setBounds(324, 185, 89, 23);
-		contentPane.add(btnModificar_2);
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEliminar.setForeground(Color.WHITE);
+		btnEliminar.setBackground(Color.GRAY);
+		btnEliminar.setBounds(323, 91, 119, 23);
+		contentPane.add(btnEliminar);
+		
+		JButton btnInsertar = new JButton("Insertar");
+		btnInsertar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnInsertar.setForeground(Color.WHITE);
+		btnInsertar.setBackground(Color.GRAY);
+		btnInsertar.setBounds(323, 125, 119, 23);
+		contentPane.add(btnInsertar);
+		
+		table = new JTable();
+		table.setFillsViewportHeight(true);
+		table.setColumnSelectionAllowed(true);
+		table.setCellSelectionEnabled(true);
+		table.setBounds(10, 61, 303, 189);
+		contentPane.add(table);
+		
+		JButton btnProductos = new JButton("Clientes");
+		btnProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaClientes vc = new VentanaClientes();
+				vc.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnProductos.setForeground(Color.WHITE);
+		btnProductos.setBackground(Color.GRAY);
+		btnProductos.setBounds(323, 159, 119, 23);
+		contentPane.add(btnProductos);
+		
+		JButton btnProveedores = new JButton("Productos");
+		btnProveedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaProductos vprod = new VentanaProductos();
+				vprod.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnProveedores.setForeground(Color.WHITE);
+		btnProveedores.setBackground(Color.GRAY);
+		btnProveedores.setBounds(323, 193, 119, 23);
+		contentPane.add(btnProveedores);
+		
+		JButton btnInicio = new JButton("Cerrar sesion");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaLogin vl = new VentanaLogin();
+				vl.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnInicio.setForeground(Color.WHITE);
+		btnInicio.setBackground(Color.GRAY);
+		btnInicio.setBounds(323, 227, 119, 23);
+		contentPane.add(btnInicio);
 	}
-
 }
