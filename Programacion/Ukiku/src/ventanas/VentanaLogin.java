@@ -52,7 +52,6 @@ public class VentanaLogin extends JFrame {
 	public VentanaLogin() {
 		
 		setTitle("Login | Ukiku");
-		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,6 +61,7 @@ public class VentanaLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		btnLogin = new JButton("Login");
 		btnLogin.setForeground(new Color(255, 255, 255));
@@ -78,12 +78,16 @@ public class VentanaLogin extends JFrame {
 					l.setLocationRelativeTo(null);
 					l.setVisible(true);
 					setVisible(false);
+					
 				} else {
+					
 					JOptionPane.showMessageDialog(rootPane, "Login Incorrecto");
+					
 				}
 
 			}
 		});
+		
 		btnLogin.setBounds(138, 205, 144, 23);
 		contentPane.add(btnLogin);
 
@@ -93,9 +97,12 @@ public class VentanaLogin extends JFrame {
 		btnRegistrarse.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				VentanaRegistro r = new VentanaRegistro();
 				r.setVisible(true);
+				r.setLocationRelativeTo(null);
 				dispose();
+				
 			}
 		});
 		btnRegistrarse.setBounds(138, 288, 144, 23);

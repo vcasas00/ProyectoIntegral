@@ -133,6 +133,7 @@ public class VentanaProductos extends JFrame {
 				
 				VentanaLogin vl = new VentanaLogin();
 				vl.setVisible(true);
+				vl.setLocationRelativeTo(null);
 				dispose();
 				
 			}
