@@ -83,29 +83,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Conexion cn = new Conexion();
-				Connection miConexion = cn.getConexion(); 
-				
-				try {
-					cn.s = miConexion.createStatement();
-					cn.rs1 = cn.s.executeQuery("D* FROM proveedor");
-					
-					Object [] fila = new Object[5];
-					
-					while (cn.rs1.next()) {
-						fila[0] = cn.rs1.getString("Nombre");
-						fila[1] = cn.rs1.getString("Cif");
-						fila[2] = cn.rs1.getString("Producto");
-						fila[3] = cn.rs1.getString("Dirección");
-						fila[4] = cn.rs1.getInt("Teléfono");
-						tabla.addRow(fila);
-					}
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+			public void actionPerformed(ActionEvent e) {	
 			}
 		});
 		btnEliminar.setForeground(Color.WHITE);

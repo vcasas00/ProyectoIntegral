@@ -11,7 +11,7 @@ public class Producto extends Ukiku {
 	 * Atributos
 	 */
 	public String nombre;
-	public int codigo;
+	
 	public String categoría;
 	public double precio;
 	public int stock;
@@ -24,12 +24,12 @@ public class Producto extends Ukiku {
 	public Producto() {
 	}
 
-	public Producto(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor,
+	public Producto(String nombre, String categoría, double precio, int stock, String cif_Proveedor,
 			String dni_cliente) {
 
 		super();
 		this.nombre = nombre;
-		this.codigo = codigo;
+		
 		this.categoría = categoría;
 		this.precio = precio;
 		this.stock = stock;
@@ -61,24 +61,8 @@ public class Producto extends Ukiku {
 		
 	}
 
-	/**
-	 * @return
-	 */
-	public int getCodigo() {
-		
-		return codigo;
-		
-	}
 
-	/**
-	 * @param codigo
-	 */
-	public void setCodigo(int codigo) {
-		
-		this.codigo = codigo;
-		
-	}
-
+	
 	/**
 	 * @return
 	 */
@@ -160,7 +144,7 @@ public class Producto extends Ukiku {
 	 * @param cifProveedor
 	 * @param dniCliente
 	 */
-	public void modificar(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor,
+	public void modificar(String nombre,  String categoría, double precio, int stock, String cif_Proveedor,
 			String dni_cliente) {
 		// TODO Auto-generated method stub
 
@@ -176,7 +160,7 @@ public class Producto extends Ukiku {
 	 * @param cifProveedor
 	 * @param dniCliente
 	 */
-	public void borrar(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor,
+	public void borrar(String nombre, String categoría, double precio, int stock, String cif_Proveedor,
 			String dni_cliente) {
 		// TODO Auto-generated method stub
 
@@ -192,14 +176,14 @@ public class Producto extends Ukiku {
 	 * @param cifProveedor
 	 * @param dniCliente
 	 */
-	public static void insertar(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor) {
+	public static void insertar(String nombre, String categoría, double precio, int stock, String cif_Proveedor) {
 		Conexion cn = new Conexion();
 		Connection miConexion = cn.getConexion();
 
 		try {
 			cn.s = miConexion.createStatement();
-			cn.rs = cn.s.executeUpdate("INSERT INTO producto (Nombre, codigo, categoría, precio, stock, cif_Proveedor) VALUES ('"
-					+ nombre + "', '" + codigo + "', '" + categoría + "', '" + precio + "', '" + stock + "', '" + cif_Proveedor + "')");
+			cn.rs = cn.s.executeUpdate("INSERT INTO producto (Nombre, categoría, precio, stock, cif_Proveedor) VALUES ('"
+					+ nombre + "', '" + categoría + "', '" + precio + "', '" + stock + "', '" + cif_Proveedor + "')");
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

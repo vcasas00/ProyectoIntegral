@@ -28,7 +28,6 @@ public class VentanaInsertarProductos extends JFrame {
 	private JTextField textFieldStock;
 	private JTextField textFieldPrecio;
 	private JTextField textFieldCategoria;
-	private JTextField textFieldCodigo;
 	private JTextField textFieldNombre;
 	private JTextField textFieldCIF;
 
@@ -52,7 +51,8 @@ public class VentanaInsertarProductos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaInsertarProductos() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaInsertarProductos.class.getResource("/img/logorene.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(VentanaInsertarProductos.class.getResource("/img/logorene.png")));
 		setTitle("Ventana Insertar Productos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 452);
@@ -61,6 +61,7 @@ public class VentanaInsertarProductos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JOptionPane.showMessageDialog(contentPane, "Recuerde insertar el proveedor antes que el producto.");
 
 		JLabel lblInserteLosDatos = new JLabel("Inserte los datos del Producto");
 		lblInserteLosDatos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
@@ -68,16 +69,11 @@ public class VentanaInsertarProductos extends JFrame {
 		lblInserteLosDatos.setBounds(38, 11, 262, 21);
 		contentPane.add(lblInserteLosDatos);
 
-
 		JLabel lblNewLabel = new JLabel("Nombre :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(80, 60, 68, 14);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblApellido = new JLabel("Codigo :");
-		lblApellido.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblApellido.setBounds(80, 106, 68, 21);
-		contentPane.add(lblApellido);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Categoria :");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -99,49 +95,57 @@ public class VentanaInsertarProductos extends JFrame {
 		btnInsertar.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnInsertar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				String nombre = textFieldNombre.getText();
+				String categoria = textFieldCategoria.getText();
+				int precio = Integer.parseInt(textFieldPrecio.getText());
+				int stock = Integer.parseInt(textFieldStock.getText());
+				String cif = textFieldCIF.getText();
+
 				try {
-					Producto.insertar(textFieldNombre.getText(),Integer.parseInt(textFieldCodigo.getText()),textFieldCategoria.getText(),Integer.parseInt(textFieldPrecio.getText()),Integer.parseInt(textFieldStock.getText()),textFieldCIF.getText());
-					
+
+					Producto.insertar(nombre, categoria, precio, stock, cif);
 					JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
-				} catch (NumberFormatException e1) {
+
+				} catch (Exception e1) {
+
 					JOptionPane.showMessageDialog(rootPane, "Fallo al insertar");
+
 					e1.printStackTrace();
 				}
+				
+				
+				
 			}
 		});
-		
+
 		JLabel lblNewLabel_1 = new JLabel("CIF Proveedor :");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(38, 264, 110, 14);
 		contentPane.add(lblNewLabel_1);
 		btnInsertar.setBounds(223, 358, 101, 44);
 		contentPane.add(btnInsertar);
-		
+
 		textFieldNombre = new JTextField();
 		textFieldNombre.setColumns(10);
 		textFieldNombre.setBounds(170, 55, 130, 29);
 		contentPane.add(textFieldNombre);
-		
-		textFieldCodigo = new JTextField();
-		textFieldCodigo.setColumns(10);
-		textFieldCodigo.setBounds(170, 100, 130, 29);
-		contentPane.add(textFieldCodigo);
-		
+
 		textFieldCategoria = new JTextField();
 		textFieldCategoria.setColumns(10);
 		textFieldCategoria.setBounds(170, 140, 130, 29);
 		contentPane.add(textFieldCategoria);
-		
+
 		textFieldPrecio = new JTextField();
 		textFieldPrecio.setColumns(10);
 		textFieldPrecio.setBounds(170, 180, 130, 29);
 		contentPane.add(textFieldPrecio);
-		
+
 		textFieldStock = new JTextField();
 		textFieldStock.setBounds(170, 220, 130, 29);
 		contentPane.add(textFieldStock);
 		textFieldStock.setColumns(10);
-		
+
 		textFieldCIF = new JTextField();
 		textFieldCIF.setBounds(170, 260, 130, 29);
 		contentPane.add(textFieldCIF);
