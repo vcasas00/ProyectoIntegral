@@ -24,17 +24,13 @@ public class Producto extends Ukiku {
 	public Producto() {
 	}
 
-	public Producto(String nombre, String categoría, double precio, int stock, String cif_Proveedor,
-			String dni_cliente) {
+	public Producto(String nombre, String categoría, double precio, int stock) {
 
 		super();
 		this.nombre = nombre;
-		
 		this.categoría = categoría;
 		this.precio = precio;
 		this.stock = stock;
-		this.cif_Proveedor = cif_Proveedor;
-		this.dni_cliente = dni_cliente;
 
 	}
 	
@@ -116,24 +112,6 @@ public class Producto extends Ukiku {
 		this.stock = stock;
 		
 	}
-
-	/**
-	 * @return
-	 */
-	public String getCifProveedor() {
-		
-		return cif_Proveedor;
-		
-	}
-
-	/**
-	 * @param cif_Proveedor
-	 */
-	public void setCifProveedor(String cif_Proveedor) {
-		
-		this.cif_Proveedor = cif_Proveedor;
-		
-	}
 	
 	/**
 	 * @param nombre
@@ -176,14 +154,14 @@ public class Producto extends Ukiku {
 	 * @param cifProveedor
 	 * @param dniCliente
 	 */
-	public static void insertar(String nombre, String categoría, double precio, int stock, String cif_Proveedor) {
+	public static void insertar(String nombre, String categoría, double precio, int stock) {
 		Conexion cn = new Conexion();
 		Connection miConexion = cn.getConexion();
 
 		try {
 			cn.s = miConexion.createStatement();
 			cn.rs = cn.s.executeUpdate("INSERT INTO producto (Nombre, categoría, precio, stock, cif_Proveedor) VALUES ('"
-					+ nombre + "', '" + categoría + "', '" + precio + "', '" + stock + "', '" + cif_Proveedor + "')");
+					+ nombre + "', '" + categoría + "', '" + precio + "', '" + stock + "',)");
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

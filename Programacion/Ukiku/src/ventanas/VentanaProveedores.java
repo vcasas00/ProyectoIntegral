@@ -46,7 +46,7 @@ public class VentanaProveedores extends JFrame {
 	public VentanaProveedores() {
 		setTitle("Proveedores | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProveedores.class.getResource("/img/logorene.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(400, 400, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -63,7 +63,6 @@ public class VentanaProveedores extends JFrame {
 		
 		tabla.addColumn("Nombre");
 		tabla.addColumn("Cif");
-		tabla.addColumn("Producto");
 		tabla.addColumn("Dirección");
 		tabla.addColumn("Teléfono");
 		
@@ -94,6 +93,9 @@ public class VentanaProveedores extends JFrame {
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VentanaInsertarProveedor vip = new VentanaInsertarProveedor();
+				vip.setVisible(true);
+				vip.setLocationRelativeTo(null);
 			}
 		});
 		btnInsertar.setForeground(Color.WHITE);
@@ -149,9 +151,8 @@ public class VentanaProveedores extends JFrame {
 					while (cn.rs1.next()) {
 						fila[0] = cn.rs1.getString("Nombre");
 						fila[1] = cn.rs1.getString("Cif");
-						fila[2] = cn.rs1.getString("Producto");
-						fila[3] = cn.rs1.getString("Dirección");
-						fila[4] = cn.rs1.getInt("Teléfono");
+						fila[2] = cn.rs1.getString("Dirección");
+						fila[3] = cn.rs1.getInt("Teléfono");
 						tabla.addRow(fila);
 					}
 					

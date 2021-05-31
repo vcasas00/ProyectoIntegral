@@ -1,7 +1,6 @@
 package ventanas;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -29,23 +28,16 @@ public class VentanaInsertarProductos extends JFrame {
 	private JTextField textFieldPrecio;
 	private JTextField textFieldCategoria;
 	private JTextField textFieldNombre;
-	private JTextField textFieldCIF;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaInsertarProductos frame = new VentanaInsertarProductos();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	/*
+	 * public static void main(String[] args) { EventQueue.invokeLater(new
+	 * Runnable() { public void run() { try { VentanaInsertarProductos frame = new
+	 * VentanaInsertarProductos(); frame.setVisible(true); } catch (Exception e) {
+	 * e.printStackTrace(); } } }); }
+	 */
 
 	/**
 	 * Create the frame.
@@ -74,7 +66,6 @@ public class VentanaInsertarProductos extends JFrame {
 		lblNewLabel.setBounds(80, 60, 68, 14);
 		contentPane.add(lblNewLabel);
 
-
 		JLabel lblNewLabel_1_1 = new JLabel("Categoria :");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_1.setBounds(69, 138, 79, 29);
@@ -98,13 +89,13 @@ public class VentanaInsertarProductos extends JFrame {
 
 				String nombre = textFieldNombre.getText();
 				String categoria = textFieldCategoria.getText();
-				int precio = Integer.parseInt(textFieldPrecio.getText());
+				double precio = Integer.parseInt(textFieldPrecio.getText());
 				int stock = Integer.parseInt(textFieldStock.getText());
-				String cif = textFieldCIF.getText();
+				
 
 				try {
 
-					Producto.insertar(nombre, categoria, precio, stock, cif);
+					Producto.insertar(nombre, categoria, precio, stock);
 					JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
 
 				} catch (Exception e1) {
@@ -113,15 +104,16 @@ public class VentanaInsertarProductos extends JFrame {
 
 					e1.printStackTrace();
 				}
-				
-				
-				
+				textFieldNombre.setText(null);
+				textFieldCategoria.setText(null);
+				textFieldPrecio.setText(null);
+				textFieldStock.setText(null);
 			}
 		});
 
-		JLabel lblNewLabel_1 = new JLabel("CIF Proveedor :");
+		JLabel lblNewLabel_1 = new JLabel("Proveedor :");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(38, 264, 110, 14);
+		lblNewLabel_1.setBounds(60, 264, 88, 14);
 		contentPane.add(lblNewLabel_1);
 		btnInsertar.setBounds(223, 358, 101, 44);
 		contentPane.add(btnInsertar);
@@ -145,11 +137,6 @@ public class VentanaInsertarProductos extends JFrame {
 		textFieldStock.setBounds(170, 220, 130, 29);
 		contentPane.add(textFieldStock);
 		textFieldStock.setColumns(10);
-
-		textFieldCIF = new JTextField();
-		textFieldCIF.setBounds(170, 260, 130, 29);
-		contentPane.add(textFieldCIF);
-		textFieldCIF.setColumns(10);
+		
 	}
-
 }

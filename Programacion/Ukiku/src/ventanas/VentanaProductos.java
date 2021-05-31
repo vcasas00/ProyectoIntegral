@@ -62,10 +62,10 @@ public class VentanaProductos extends JFrame {
 		table = new JTable(tabla);
 		
 		tabla.addColumn("Nombre");
-		tabla.addColumn("Cif");
-		tabla.addColumn("Producto");
-		tabla.addColumn("Dirección");
-		tabla.addColumn("Teléfono");
+		tabla.addColumn("Categoría");
+		tabla.addColumn("Precio");
+		tabla.addColumn("Stock");
+		tabla.addColumn("Cif_proveedor");
 		
 		
 		scrollPane.setViewportView(table);
@@ -146,16 +146,16 @@ public class VentanaProductos extends JFrame {
 				
 				try {
 					cn.s = miConexion.createStatement();
-					cn.rs1 = cn.s.executeQuery("SELECT* FROM proveedor");
+					cn.rs1 = cn.s.executeQuery("SELECT* FROM producto");
 					
 					Object [] fila = new Object[5];
 					
 					while (cn.rs1.next()) {
 						fila[0] = cn.rs1.getString("Nombre");
-						fila[1] = cn.rs1.getString("Cif");
-						fila[2] = cn.rs1.getString("Producto");
-						fila[3] = cn.rs1.getString("Dirección");
-						fila[4] = cn.rs1.getInt("Teléfono");
+						fila[1] = cn.rs1.getString("Categoría");
+						fila[2] = cn.rs1.getDouble("Precio");
+						fila[3] = cn.rs1.getInt("Stock");
+						fila[4] = cn.rs1.getString("Cif_proveedor");
 						tabla.addRow(fila);
 					}
 					

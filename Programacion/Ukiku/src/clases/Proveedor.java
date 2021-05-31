@@ -1,5 +1,10 @@
 package clases;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import conectarBd.Conexion;
+
 /**
  * @author DAM
  * 
@@ -11,7 +16,6 @@ public class Proveedor extends Ukiku {
 	 * Atributos
 	 */
 	private String nombre;
-	private String apellido;
 	private String cif;
 	private String direccion;
 	private int telefono;
@@ -22,16 +26,15 @@ public class Proveedor extends Ukiku {
 	public Proveedor() {
 	}
 
-	public Proveedor(String nombre, String apellido, String cif, String direccion, int telefono) {
+	public Proveedor(String nombre, String cif, String direccion, int telefono) {
 
 		this.nombre = nombre;
-		this.apellido = apellido;
 		this.cif = cif;
 		this.direccion = direccion;
 		this.telefono = telefono;
 
 	}
-	
+
 	/**
 	 * Getters y Setters
 	 */
@@ -48,20 +51,6 @@ public class Proveedor extends Ukiku {
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getApellido() {
-		return apellido;
-	}
-
-	/**
-	 * @param apellido
-	 */
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
 	}
 
 	/**
@@ -106,42 +95,47 @@ public class Proveedor extends Ukiku {
 		this.telefono = telefono;
 	}
 
-	
+
 	/**
 	 * @param nombre
-	 * @param apellido
 	 * @param cif
 	 * @param direccion
 	 * @param telefono
 	 */
-	public void modificar(String nombre, String apellido, String cif, String direccion, int telefono) {
+	public void modificar(String nombre, String cif, String direccion, int telefono) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	/**
 	 * @param nombre
-	 * @param apellido
 	 * @param cif
 	 * @param direccion
 	 * @param telefono
 	 */
-	public void borrar(String nombre, String apellido, String cif, String direccion, int telefono) {
+	public void borrar(String nombre, String cif, String direccion, int telefono) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	/**
 	 * @param nombre
-	 * @param apellido
 	 * @param cif
 	 * @param direccion
 	 * @param telefono
 	 */
-	public void insertar(String nombre, String apellido, String cif, String direccion, int telefono) {
-		// TODO Auto-generated method stub
+	public static void insertar(String nombre, String cif, String direccion, int telefono) {
+		Conexion cn = new Conexion();
+		Connection miConexion = cn.getConexion();
+
+		try {
+			cn.s = miConexion.createStatement();
+			cn.rs = cn.s.executeUpdate("INSERT INTO proveedor (Nombre, Cif, Dirección, Teléfono) VALUES ('" + nombre
+					+ "', '" + cif + "', '" + direccion + "', '" + telefono + "')");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
