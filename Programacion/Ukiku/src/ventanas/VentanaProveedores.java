@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.JTable;
+import javax.swing.WindowConstants;
 
 public class VentanaProveedores extends JFrame {
 
@@ -46,7 +47,7 @@ public class VentanaProveedores extends JFrame {
 	public VentanaProveedores() {
 		setTitle("Proveedores | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProveedores.class.getResource("/img/logorene.png")));
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(400, 400, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -72,6 +73,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
@@ -82,6 +84,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {	
 			}
 		});
@@ -92,6 +95,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				VentanaInsertarProveedor vip = new VentanaInsertarProveedor();
 				vip.setVisible(true);
@@ -106,6 +110,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnProveedores = new JButton("Productos");
 		btnProveedores.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProductos vprod = new VentanaProductos();
@@ -122,6 +127,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnInicio = new JButton("Cerrar sesion");
 		btnInicio.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaLogin vl = new VentanaLogin();
@@ -138,6 +144,7 @@ public class VentanaProveedores extends JFrame {
 		
 		JButton btnCargar = new JButton("Cargar Datos");
 		btnCargar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Conexion cn = new Conexion();
 				Connection miConexion = cn.getConexion(); 

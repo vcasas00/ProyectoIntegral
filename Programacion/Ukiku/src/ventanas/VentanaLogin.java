@@ -67,6 +67,7 @@ public class VentanaLogin extends JFrame {
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.setBackground(new Color(128, 128, 128));
 		btnLogin.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Usuario u = new Usuario();
@@ -90,6 +91,7 @@ public class VentanaLogin extends JFrame {
 		btnRegistrarse.setForeground(new Color(255, 255, 255));
 		btnRegistrarse.setBackground(new Color(128, 128, 128));
 		btnRegistrarse.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				VentanaRegistro r = new VentanaRegistro();
 				r.setVisible(true);

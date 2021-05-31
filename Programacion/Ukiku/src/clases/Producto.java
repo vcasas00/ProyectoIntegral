@@ -42,6 +42,7 @@ public class Producto extends Ukiku {
 	/**
 	 * @return
 	 */
+	@Override
 	public String getNombre() {
 		
 		return nombre;
@@ -51,6 +52,7 @@ public class Producto extends Ukiku {
 	/**
 	 *@param nombre
 	 */
+	@Override
 	public void setNombre(String nombre) {
 		
 		this.nombre = nombre;

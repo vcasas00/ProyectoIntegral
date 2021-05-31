@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -53,7 +54,7 @@ public class VentanaRegistro extends JFrame {
 		setTitle("Registro - Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 403, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -82,6 +83,7 @@ public class VentanaRegistro extends JFrame {
 		btnRegistrarse.setForeground(new Color(255, 255, 255));
 		btnRegistrarse.setBackground(new Color(128, 128, 128));
 		btnRegistrarse.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					Usuario u = new Usuario();

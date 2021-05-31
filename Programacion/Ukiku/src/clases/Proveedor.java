@@ -42,6 +42,7 @@ public class Proveedor extends Ukiku {
 	/**
 	 * @return
 	 */
+	@Override
 	public String getNombre() {
 		return nombre;
 	}
@@ -49,6 +50,7 @@ public class Proveedor extends Ukiku {
 	/**
 	 * @param nombre
 	 */
+	@Override
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

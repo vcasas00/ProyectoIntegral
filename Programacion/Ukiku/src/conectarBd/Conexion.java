@@ -24,7 +24,7 @@ public class Conexion {
 			Class.forName(driver);
 			conexion = DriverManager.getConnection(url, user, password);
 
-			s = (Statement) conexion.createStatement();
+			s = conexion.createStatement();
 
 		} catch (ClassNotFoundException | SQLException e) {
 

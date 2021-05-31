@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import clases.Producto;
@@ -46,7 +47,7 @@ public class VentanaInsertarProductos extends JFrame {
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(VentanaInsertarProductos.class.getResource("/img/logorene.png")));
 		setTitle("Ventana Insertar Productos");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 452);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -85,6 +86,7 @@ public class VentanaInsertarProductos extends JFrame {
 		btnInsertar.setForeground(Color.BLACK);
 		btnInsertar.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnInsertar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				String nombre = textFieldNombre.getText();

@@ -72,6 +72,7 @@ public class VentanaProductos extends JFrame {
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
@@ -82,6 +83,7 @@ public class VentanaProductos extends JFrame {
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
@@ -92,6 +94,7 @@ public class VentanaProductos extends JFrame {
 		
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaInsertarProductos vintpro = new VentanaInsertarProductos();
@@ -108,6 +111,7 @@ public class VentanaProductos extends JFrame {
 		
 		JButton btnProveedores = new JButton("Proveedores");
 		btnProveedores.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProveedores vprov = new VentanaProveedores();
@@ -124,6 +128,7 @@ public class VentanaProductos extends JFrame {
 		
 		JButton btnInicio = new JButton("Cerrar sesion");
 		btnInicio.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaLogin vl = new VentanaLogin();
@@ -140,6 +145,7 @@ public class VentanaProductos extends JFrame {
 		
 		JButton btnCargar = new JButton("Cargar Datos");
 		btnCargar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Conexion cn = new Conexion();
 				Connection miConexion = cn.getConexion(); 

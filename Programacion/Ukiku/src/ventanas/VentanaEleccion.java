@@ -58,6 +58,7 @@ public class VentanaEleccion extends JFrame {
 		
 		btnProveedor = new JButton("Proveedor");
 		btnProveedor.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProveedores pov = new VentanaProveedores();
@@ -73,6 +74,7 @@ public class VentanaEleccion extends JFrame {
 		
 		btnProductos = new JButton("Productos");
 		btnProductos.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProductos p = new VentanaProductos();
