@@ -1,16 +1,23 @@
 package ventanas;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
-import clases.Producto;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import conectarBd.Conexion;
 
 import java.awt.Toolkit;
 import java.awt.Color;
-import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 
@@ -37,38 +44,72 @@ public class VentanaProductos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaProductos() {
-		setTitle("Productos - Ukiku");
+		setTitle("Productos | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProductos.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 461, 300);
+		setBounds(400, 400, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox<Producto> comboBox = new JComboBox<Producto>();
-		comboBox.setBounds(10, 11, 303, 31);
-		contentPane.add(comboBox);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 240, 838, 461);
+		contentPane.add(scrollPane);
+		
+		DefaultTableModel tabla = new DefaultTableModel();
+		table = new JTable(tabla);
+		
+		tabla.addColumn("Nombre");
+		tabla.addColumn("Cif");
+		tabla.addColumn("Producto");
+		tabla.addColumn("Dirección");
+		tabla.addColumn("Teléfono");
+		
+		
+		scrollPane.setViewportView(table);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnModificar.setForeground(Color.WHITE);
 		btnModificar.setBackground(Color.GRAY);
-		btnModificar.setBounds(323, 57, 119, 23);
+		btnModificar.setBounds(858, 240, 165, 64);
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Conexion cn = new Conexion();
+				Connection miConexion = cn.getConexion(); 
+				
+				try {
+					cn.s = miConexion.createStatement();
+					cn.rs1 = cn.s.executeQuery("D* FROM producto");
+					
+					Object [] fila = new Object[5];
+					
+					while (cn.rs1.next()) {
+						fila[0] = cn.rs1.getString("Nombre");
+						fila[1] = cn.rs1.getString("Cif");
+						fila[2] = cn.rs1.getString("Producto");
+						fila[3] = cn.rs1.getString("Dirección");
+						fila[4] = cn.rs1.getInt("Teléfono");
+						tabla.addRow(fila);
+					}
+					
+				} catch (SQLException e1) {
+					
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnEliminar.setForeground(Color.WHITE);
 		btnEliminar.setBackground(Color.GRAY);
-		btnEliminar.setBounds(323, 91, 119, 23);
+		btnEliminar.setBounds(858, 315, 165, 64);
 		contentPane.add(btnEliminar);
 		
 		JButton btnInsertar = new JButton("Insertar");
@@ -78,44 +119,24 @@ public class VentanaProductos extends JFrame {
 		});
 		btnInsertar.setForeground(Color.WHITE);
 		btnInsertar.setBackground(Color.GRAY);
-		btnInsertar.setBounds(323, 125, 119, 23);
+		btnInsertar.setBounds(858, 390, 165, 64);
 		contentPane.add(btnInsertar);
 		
-		table = new JTable();
-		table.setFillsViewportHeight(true);
-		table.setColumnSelectionAllowed(true);
-		table.setCellSelectionEnabled(true);
-		table.setBounds(10, 61, 303, 189);
-		contentPane.add(table);
-		
-		JButton btnClientes = new JButton("Clientes");
-		btnClientes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				VentanaClientes vc = new VentanaClientes();
-				vc.setVisible(true);
-				dispose();
-				
-			}
-		});
-		btnClientes.setForeground(Color.WHITE);
-		btnClientes.setBackground(Color.GRAY);
-		btnClientes.setBounds(323, 159, 119, 23);
-		contentPane.add(btnClientes);
 		
 		JButton btnProveedores = new JButton("Proveedores");
 		btnProveedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaProveedores vpov = new VentanaProveedores();
-				vpov.setVisible(true);
+				VentanaProveedores vprov = new VentanaProveedores();
+				vprov.setLocationRelativeTo(null);
+				vprov.setVisible(true);
 				dispose();
 				
 			}
 		});
 		btnProveedores.setForeground(Color.WHITE);
 		btnProveedores.setBackground(Color.GRAY);
-		btnProveedores.setBounds(323, 193, 119, 23);
+		btnProveedores.setBounds(10, 712, 275, 38);
 		contentPane.add(btnProveedores);
 		
 		JButton btnInicio = new JButton("Cerrar sesion");
@@ -130,7 +151,52 @@ public class VentanaProductos extends JFrame {
 		});
 		btnInicio.setForeground(Color.WHITE);
 		btnInicio.setBackground(Color.GRAY);
-		btnInicio.setBounds(323, 227, 119, 23);
+		btnInicio.setBounds(1009, 696, 165, 54);
 		contentPane.add(btnInicio);
+		
+		
+		JButton btnCargar = new JButton("Cargar Datos");
+		btnCargar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Conexion cn = new Conexion();
+				Connection miConexion = cn.getConexion(); 
+				
+				try {
+					cn.s = miConexion.createStatement();
+					cn.rs1 = cn.s.executeQuery("SELECT* FROM proveedor");
+					
+					Object [] fila = new Object[5];
+					
+					while (cn.rs1.next()) {
+						fila[0] = cn.rs1.getString("Nombre");
+						fila[1] = cn.rs1.getString("Cif");
+						fila[2] = cn.rs1.getString("Producto");
+						fila[3] = cn.rs1.getString("Dirección");
+						fila[4] = cn.rs1.getInt("Teléfono");
+						tabla.addRow(fila);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		btnCargar.setForeground(Color.WHITE);
+		btnCargar.setBackground(Color.GRAY);
+		btnCargar.setBounds(573, 165, 275, 64);
+		contentPane.add(btnCargar);
+		
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(VentanaProveedores.class.getResource("/img/xlarge_ukiku.png")));
+		label.setBounds(382, 11, 347, 78);
+		contentPane.add(label);
+		
+		JLabel label_1 = DefaultComponentFactory.getInstance().createLabel("");
+		label_1.setIcon(new ImageIcon(VentanaProveedores.class.getResource("/img/logorene.png")));
+		label_1.setBounds(970, 11, 204, 205);
+		contentPane.add(label_1);
 	}
 }

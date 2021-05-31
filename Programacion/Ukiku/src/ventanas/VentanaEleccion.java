@@ -20,7 +20,6 @@ public class VentanaEleccion extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblEligeAQue_1;
-	private JButton btnClientes;
 	private JButton btnProveedor;
 	private JButton btnProductos;
 
@@ -38,7 +37,7 @@ public class VentanaEleccion extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaEleccion() {
-		setTitle("Eleccion de registro - Ukiku");
+		setTitle("Eleccion de registro | Ukiku");
 		setResizable(false);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaEleccion.class.getResource("/img/logorene.png")));
@@ -56,32 +55,20 @@ public class VentanaEleccion extends JFrame {
 		lblEligeAQue_1.setBounds(0, 11, 387, 50);
 		contentPane.add(lblEligeAQue_1);
 		
-		btnClientes = new JButton("Clientes");
-		btnClientes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				VentanaClientes c =new VentanaClientes();
-				c.setVisible(true);
-				dispose();
-				
-			}
-		});
-		btnClientes.setBackground(new Color(135, 206, 250));
-		btnClientes.setBounds(10, 72, 115, 59);
-		contentPane.add(btnClientes);
 		
 		btnProveedor = new JButton("Proveedor");
 		btnProveedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProveedores pov = new VentanaProveedores();
+				pov.setLocationRelativeTo(null);
 				pov.setVisible(true);
 				dispose();
 				
 			}
 		});
 		btnProveedor.setBackground(new Color(107, 142, 35));
-		btnProveedor.setBounds(135, 72, 115, 59);
+		btnProveedor.setBounds(46, 72, 115, 59);
 		contentPane.add(btnProveedor);
 		
 		btnProductos = new JButton("Productos");
@@ -89,13 +76,14 @@ public class VentanaEleccion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				VentanaProductos p = new VentanaProductos();
+				p.setLocationRelativeTo(null);
 				p.setVisible(true);
 				dispose();
 				
 			}
 		});
 		btnProductos.setBackground(new Color(255, 105, 180));
-		btnProductos.setBounds(260, 72, 115, 59);
+		btnProductos.setBounds(215, 72, 115, 59);
 		contentPane.add(btnProductos);
 		
 	}

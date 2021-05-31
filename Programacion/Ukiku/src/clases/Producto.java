@@ -1,5 +1,10 @@
 package clases;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import conectarBd.Conexion;
+
 public class Producto extends Ukiku {
 
 	/**
@@ -7,11 +12,11 @@ public class Producto extends Ukiku {
 	 */
 	public String nombre;
 	public int codigo;
-	public String categoria;
+	public String categoría;
 	public double precio;
 	public int stock;
-	public String cifProveedor;
-	public String dniCliente;
+	public String cif_Proveedor;
+	public String dni_cliente;
 
 	/**
 	 * constructores
@@ -19,17 +24,17 @@ public class Producto extends Ukiku {
 	public Producto() {
 	}
 
-	public Producto(String nombre, int codigo, String categoria, double precio, int stock, String cifProveedor,
-			String dniCliente) {
+	public Producto(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor,
+			String dni_cliente) {
 
 		super();
 		this.nombre = nombre;
 		this.codigo = codigo;
-		this.categoria = categoria;
+		this.categoría = categoría;
 		this.precio = precio;
 		this.stock = stock;
-		this.cifProveedor = cifProveedor;
-		this.dniCliente = dniCliente;
+		this.cif_Proveedor = cif_Proveedor;
+		this.dni_cliente = dni_cliente;
 
 	}
 	
@@ -79,16 +84,16 @@ public class Producto extends Ukiku {
 	 */
 	public String getCategoria() {
 		
-		return categoria;
+		return categoría;
 		
 	}
 
 	/**
-	 * @param categoria
+	 * @param categoría
 	 */
-	public void setCategoria(String categoria) {
+	public void setCategoria(String categoría) {
 		
-		this.categoria = categoria;
+		this.categoría = categoría;
 		
 	}
 
@@ -133,49 +138,46 @@ public class Producto extends Ukiku {
 	 */
 	public String getCifProveedor() {
 		
-		return cifProveedor;
+		return cif_Proveedor;
 		
 	}
 
 	/**
+	 * @param cif_Proveedor
+	 */
+	public void setCifProveedor(String cif_Proveedor) {
+		
+		this.cif_Proveedor = cif_Proveedor;
+		
+	}
+	
+	/**
+	 * @param nombre
+	 * @param codigo
+	 * @param categoría
+	 * @param precio
+	 * @param stock
 	 * @param cifProveedor
-	 */
-	public void setCifProveedor(String cifProveedor) {
-		
-		this.cifProveedor = cifProveedor;
-		
-	}
-
-	/**
-	 * @return
-	 */
-	public String getDniCliente() {
-		
-		return dniCliente;
-		
-	}
-
-	/**
 	 * @param dniCliente
 	 */
-	public void setDniCliente(String dniCliente) {
-		
-		this.dniCliente = dniCliente;
-		
+	public void modificar(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor,
+			String dni_cliente) {
+		// TODO Auto-generated method stub
+
 	}
 
 	
 	/**
 	 * @param nombre
 	 * @param codigo
-	 * @param categoria
+	 * @param categoría
 	 * @param precio
 	 * @param stock
 	 * @param cifProveedor
 	 * @param dniCliente
 	 */
-	public void modificar(String nombre, int codigo, String categoria, double precio, int stock, String cifProveedor,
-			String dniCliente) {
+	public void borrar(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor,
+			String dni_cliente) {
 		// TODO Auto-generated method stub
 
 	}
@@ -190,25 +192,19 @@ public class Producto extends Ukiku {
 	 * @param cifProveedor
 	 * @param dniCliente
 	 */
-	public void borrar(String nombre, int codigo, String categoria, double precio, int stock, String cifProveedor,
-			String dniCliente) {
-		// TODO Auto-generated method stub
+	public static void insertar(String nombre, int codigo, String categoría, double precio, int stock, String cif_Proveedor) {
+		Conexion cn = new Conexion();
+		Connection miConexion = cn.getConexion();
 
-	}
+		try {
+			cn.s = miConexion.createStatement();
+			cn.rs = cn.s.executeUpdate("INSERT INTO producto (Nombre, codigo, categoría, precio, stock, cif_Proveedor) VALUES ('"
+					+ nombre + "', '" + codigo + "', '" + categoría + "', '" + precio + "', '" + stock + "', '" + cif_Proveedor + "')");
 
-	
-	/**
-	 * @param nombre
-	 * @param codigo
-	 * @param categoria
-	 * @param precio
-	 * @param stock
-	 * @param cifProveedor
-	 * @param dniCliente
-	 */
-	public void insertar(String nombre, int codigo, String categoria, double precio, int stock, String cifProveedor,
-			String dniCliente) {
-		// TODO Auto-generated method stub
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

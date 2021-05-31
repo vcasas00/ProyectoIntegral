@@ -21,6 +21,8 @@ import java.awt.Toolkit;
 
 public class VentanaLogin extends JFrame {
 
+	
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
@@ -32,6 +34,7 @@ public class VentanaLogin extends JFrame {
 	private JLabel lblNewLabel;
 	private JLabel lblContrasea;
 	private JLabel lblInicioDeSesion;
+	
 
 	/**
 	 * Launch the application.
@@ -47,7 +50,8 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
-		setTitle("Login - Ukiku");
+		
+		setTitle("Login | Ukiku");
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);
@@ -64,12 +68,13 @@ public class VentanaLogin extends JFrame {
 		btnLogin.setBackground(new Color(128, 128, 128));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO funcionalidad login
+				
 				Usuario u = new Usuario();
 
 				if (u.acceder(textFieldUsuario.getText(), textFieldContraseña.getText())) {
 					JOptionPane.showMessageDialog(rootPane, "Login Correcto");
 					VentanaEleccion l = new VentanaEleccion();
+					l.setLocationRelativeTo(null);
 					l.setVisible(true);
 					setVisible(false);
 				} else {

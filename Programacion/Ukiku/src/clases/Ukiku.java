@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 public class Ukiku extends Usuario{
 	
-	private ArrayList<Cliente> listarClientes;
 	private ArrayList<Producto> listarProducto;
 	private ArrayList<Proveedor> listarProveedor;
 	
@@ -18,16 +17,6 @@ public class Ukiku extends Usuario{
 		
 	}
 	
-	public ArrayList<Cliente> getListarClientes() {
-		
-		return listarClientes;
-		
-	}
-	public void setListarClientes(ArrayList<Cliente> listarClientes) {
-		
-		this.listarClientes = listarClientes;
-		
-	}
 	
 	public ArrayList<Producto> getListarProducto() {
 		
@@ -50,10 +39,6 @@ public class Ukiku extends Usuario{
 	public void setListarProveedor(ArrayList<Proveedor> listarProveedor) {
 		
 		this.listarProveedor = listarProveedor;
-		
-	}
-	
-	public void accederAClientes() {
 		
 	}
 	
