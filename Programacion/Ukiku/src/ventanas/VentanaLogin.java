@@ -60,6 +60,7 @@ public class VentanaLogin extends JFrame {
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 
