@@ -97,7 +97,6 @@ public class Proveedor extends Ukiku {
 		this.telefono = telefono;
 	}
 
-
 	/**
 	 * @param nombre
 	 * @param cif
@@ -115,8 +114,62 @@ public class Proveedor extends Ukiku {
 	 * @param direccion
 	 * @param telefono
 	 */
-	public void borrar(String nombre, String cif, String direccion, int telefono) {
-		// TODO Auto-generated method stub
+	public static void borrar(String cif) {
+
+		Conexion cn = new Conexion();
+		String sql = "delete from proveedor where Cif='" + cif + "'";
+
+		try {
+			cn.rs = cn.s.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static boolean estaBorradoCif(String cif) {
+		boolean si = true;
+		Conexion cn = new Conexion();
+		String sql = "select Cif from proveedor where Cif='" + cif + "'";
+		try {
+
+			cn.rs1 = cn.s.executeQuery(sql);
+			if (cn.rs1.next()) {
+
+				si = false;
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return si;
+
+	}
+	
+	public static boolean existeCif(String cif) {
+		boolean si = false;
+		Conexion cn = new Conexion();
+		String sql = "select Cif from proveedor where Cif='" + cif + "'";
+		try {
+
+			cn.rs1 = cn.s.executeQuery(sql);
+			if (cn.rs1.next()) {
+
+				si = true;
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return si;
 
 	}
 

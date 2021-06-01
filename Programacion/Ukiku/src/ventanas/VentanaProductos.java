@@ -2,6 +2,7 @@ package ventanas;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
@@ -9,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+import clases.Producto;
 import conectarBd.Conexion;
 
 import java.awt.Toolkit;
@@ -20,6 +22,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class VentanaProductos extends JFrame {
 
@@ -29,6 +33,7 @@ public class VentanaProductos extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
+	private JTextField textFieldCodigoEliminar;
 
 	/**
 	 * Launch the application.
@@ -46,7 +51,7 @@ public class VentanaProductos extends JFrame {
 	public VentanaProductos() {
 		setTitle("Productos | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProductos.class.getResource("/img/logorene.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(400, 400, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -62,6 +67,7 @@ public class VentanaProductos extends JFrame {
 		table = new JTable(tabla);
 		
 		tabla.addColumn("Nombre");
+		tabla.addColumn("Codigo");
 		tabla.addColumn("Categoría");
 		tabla.addColumn("Precio");
 		tabla.addColumn("Stock");
@@ -81,15 +87,48 @@ public class VentanaProductos extends JFrame {
 		btnModificar.setBounds(858, 240, 165, 64);
 		contentPane.add(btnModificar);
 		
+		textFieldCodigoEliminar = new JTextField();
+		textFieldCodigoEliminar.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldCodigoEliminar.setBounds(1088, 451, 86, 42);
+		contentPane.add(textFieldCodigoEliminar);
+		textFieldCodigoEliminar.setColumns(10);
+		
+		JLabel lblCodigoDeEl = new JLabel("Codigo del producto a eliminar:  ");
+		lblCodigoDeEl.setBounds(858, 465, 204, 14);
+		contentPane.add(lblCodigoDeEl);
+		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				int codigo = Integer.parseInt(textFieldCodigoEliminar.getText());
+				
+				if(Producto.existeCodigo(codigo)) {
+					
+					Producto.borrar(codigo);
+					
+					if(Producto.estaBorradoCodigo(codigo)) {
+						
+						JOptionPane.showMessageDialog(contentPane, "Borrado correctamente");
+						
+					} else {
+						
+						JOptionPane.showMessageDialog(contentPane, "Error al borrar");
+						
+					}
+					
+				} else {
+					
+					JOptionPane.showMessageDialog(contentPane, "El codigo introducido no existe");
+					
+				}
+				
 			}
 		});
 		btnEliminar.setForeground(Color.WHITE);
 		btnEliminar.setBackground(Color.GRAY);
-		btnEliminar.setBounds(858, 315, 165, 64);
+		btnEliminar.setBounds(858, 390, 165, 64);
 		contentPane.add(btnEliminar);
 		
 		JButton btnInsertar = new JButton("Insertar");
@@ -105,7 +144,7 @@ public class VentanaProductos extends JFrame {
 		});
 		btnInsertar.setForeground(Color.WHITE);
 		btnInsertar.setBackground(Color.GRAY);
-		btnInsertar.setBounds(858, 390, 165, 64);
+		btnInsertar.setBounds(858, 315, 165, 64);
 		contentPane.add(btnInsertar);
 		
 		
@@ -155,14 +194,17 @@ public class VentanaProductos extends JFrame {
 					cn.s = miConexion.createStatement();
 					cn.rs1 = cn.s.executeQuery("SELECT* FROM producto");
 					
-					Object [] fila = new Object[5];
+					Object [] fila = new Object[6];
+					
+					table.repaint();
 					
 					while (cn.rs1.next()) {
 						fila[0] = cn.rs1.getString("Nombre");
-						fila[1] = cn.rs1.getString("Categoría");
-						fila[2] = cn.rs1.getDouble("Precio");
-						fila[3] = cn.rs1.getInt("Stock");
-						fila[4] = cn.rs1.getString("Cif_proveedor");
+						fila[1] = cn.rs1.getInt("Codigo");
+						fila[2] = cn.rs1.getString("Categoría");
+						fila[3] = cn.rs1.getDouble("Precio");
+						fila[4] = cn.rs1.getInt("Stock");
+						fila[5] = cn.rs1.getString("Cif_proveedor");
 						tabla.addRow(fila);
 					}
 					
@@ -188,5 +230,7 @@ public class VentanaProductos extends JFrame {
 		label_1.setIcon(new ImageIcon(VentanaProveedores.class.getResource("/img/logorene.png")));
 		label_1.setBounds(970, 11, 204, 205);
 		contentPane.add(label_1);
+		
+		
 	}
 }

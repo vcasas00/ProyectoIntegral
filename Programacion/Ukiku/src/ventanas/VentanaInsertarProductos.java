@@ -29,6 +29,7 @@ public class VentanaInsertarProductos extends JFrame {
 	private JTextField textFieldPrecio;
 	private JTextField textFieldCategoria;
 	private JTextField textFieldNombre;
+	private JTextField textFieldProveedor;
 
 	/**
 	 * Launch the application.
@@ -93,11 +94,11 @@ public class VentanaInsertarProductos extends JFrame {
 				String categoria = textFieldCategoria.getText();
 				double precio = Integer.parseInt(textFieldPrecio.getText());
 				int stock = Integer.parseInt(textFieldStock.getText());
-				
+				String proveedor = textFieldProveedor.getText();
 
 				try {
 
-					Producto.insertar(nombre, categoria, precio, stock);
+					Producto.insertar(nombre, categoria, precio, stock, proveedor);
 					JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
 
 				} catch (Exception e1) {
@@ -139,6 +140,11 @@ public class VentanaInsertarProductos extends JFrame {
 		textFieldStock.setBounds(170, 220, 130, 29);
 		contentPane.add(textFieldStock);
 		textFieldStock.setColumns(10);
+		
+		textFieldProveedor = new JTextField();
+		textFieldProveedor.setColumns(10);
+		textFieldProveedor.setBounds(170, 260, 130, 29);
+		contentPane.add(textFieldProveedor);
 		
 	}
 }
