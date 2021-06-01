@@ -86,23 +86,23 @@ public class Usuario {
 		String sql = "select nombre, contraseña from usuario where nombre= '" + nombre + "' AND contraseña= '"
 				+ contraseña + "'";
 		try {
-			
+
 			c.rs1 = c.s.executeQuery(sql);
-			
-			if(c.rs1.next()) {
-				
+
+			if (c.rs1.next()) {
+
 				acceso = true;
-				
+
 			}
-			
+
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
-		
+
 		c.desconectar();
-		
+
 		return acceso;
 
 	}
@@ -117,19 +117,43 @@ public class Usuario {
 	public void registrarse(String nombre, String contraseña) {
 
 		Conexion c = new Conexion();
-		String sql = "insert into usuario(Nombre, Contraseña)"+" values ('"+nombre+"', '"+contraseña+"')" ;
+		String sql = "insert into usuario(Nombre, Contraseña)" + " values ('" + nombre + "', '" + contraseña + "')";
 		try {
-			
+
 			c.rs = c.s.executeUpdate(sql);
-			
+
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
-		
+
 		c.desconectar();
-		
+
+	}
+
+	public boolean existeUsuario(String nombre) {
+		Conexion c = new Conexion();
+		boolean existeUsuario = false;
+		String sql = "select nombre from usuario where nombre= '" + nombre + "'";
+
+		try {
+
+			c.rs1 = c.s.executeQuery(sql);
+
+			if (c.rs1.next()) {
+
+				existeUsuario = true;
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return existeUsuario;
 	}
 
 }

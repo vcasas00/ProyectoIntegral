@@ -196,8 +196,6 @@ public class VentanaProductos extends JFrame {
 					
 					Object [] fila = new Object[6];
 					
-					table.repaint();
-					
 					while (cn.rs1.next()) {
 						fila[0] = cn.rs1.getString("Nombre");
 						fila[1] = cn.rs1.getInt("Codigo");

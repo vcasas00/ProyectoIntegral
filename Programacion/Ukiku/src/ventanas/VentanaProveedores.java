@@ -73,6 +73,28 @@ public class VentanaProveedores extends JFrame {
 		tabla.addColumn("Teléfono");
 
 		scrollPane.setViewportView(table);
+		
+		Conexion cn = new Conexion();
+		Connection miConexion = cn.getConexion(); 
+		
+		try {
+			cn.s = miConexion.createStatement();
+			cn.rs1 = cn.s.executeQuery("SELECT* FROM proveedor");
+			
+			Object [] fila = new Object[5];
+			
+			while (cn.rs1.next()) {
+				fila[0] = cn.rs1.getString("Nombre");
+				fila[1] = cn.rs1.getString("Cif");
+				fila[2] = cn.rs1.getString("Dirección");
+				fila[3] = cn.rs1.getInt("Teléfono");
+				tabla.addRow(fila);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
@@ -167,32 +189,32 @@ public class VentanaProveedores extends JFrame {
 		btnInicio.setBounds(1009, 696, 165, 54);
 		contentPane.add(btnInicio);
 
-		JButton btnCargar = new JButton("Cargar Datos");
-		btnCargar.addActionListener(new ActionListener() {
+		JButton btnCargar = new JButton("Actualizar");
+		btnCargar.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				Conexion cn = new Conexion();
-				Connection miConexion = cn.getConexion();
-
+			//table.
 				try {
 					cn.s = miConexion.createStatement();
 					cn.rs1 = cn.s.executeQuery("SELECT* FROM proveedor");
-
-					Object[] fila = new Object[5];
-
+					
+					Object [] fila = new Object[5];
+					tabla.setRowCount(0);
 					while (cn.rs1.next()) {
+						
 						fila[0] = cn.rs1.getString("Nombre");
 						fila[1] = cn.rs1.getString("Cif");
 						fila[2] = cn.rs1.getString("Dirección");
 						fila[3] = cn.rs1.getInt("Teléfono");
 						tabla.addRow(fila);
-					}
 
+					}
+					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
+				 
 			}
 		});
 		btnCargar.setForeground(Color.WHITE);

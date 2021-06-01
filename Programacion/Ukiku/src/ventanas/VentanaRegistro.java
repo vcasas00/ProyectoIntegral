@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -54,7 +53,7 @@ public class VentanaRegistro extends JFrame {
 		setTitle("Registro - Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/img/logorene.png")));
 		setBackground(Color.CYAN);
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 403, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -85,17 +84,33 @@ public class VentanaRegistro extends JFrame {
 		btnRegistrarse.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				
 				try {
+					
 					Usuario u = new Usuario();
-					u.registrarse(textFieldnombre.getText(), textFieldContraseña.getText());
-					JOptionPane.showMessageDialog(rootPane, "Añadido correctamente");
-					VentanaLogin v = new VentanaLogin();
-					v.setVisible(true);
-					setVisible(false);
+					String nombre = textFieldnombre.getText();
+					String contraseña = textFieldContraseña.getText();
+					
+					if(!u.existeUsuario(nombre)) {
+						
+						u.registrarse(nombre, contraseña);
+						JOptionPane.showMessageDialog(contentPane, "Añadido correctamente");
+						VentanaLogin v = new VentanaLogin();
+						v.setVisible(true);
+						setVisible(false);
+
+					} else {
+						
+						JOptionPane.showMessageDialog(contentPane, "El usuario ya existe");
+					}
+										
 				} catch (Exception e) {
+					
 					JOptionPane.showMessageDialog(rootPane, "Error al registrar el usuario");
 					e.printStackTrace();
+					
 				}
+				
 			}
 		});
 		btnRegistrarse.setBounds(138, 227, 144, 23);
