@@ -111,6 +111,7 @@ public class VentanaInsertarProductos extends JFrame {
 				textFieldCategoria.setText(null);
 				textFieldPrecio.setText(null);
 				textFieldStock.setText(null);
+				textFieldProveedor.setText(null);
 			}
 		});
 

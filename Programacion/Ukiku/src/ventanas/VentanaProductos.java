@@ -76,6 +76,33 @@ public class VentanaProductos extends JFrame {
 		
 		scrollPane.setViewportView(table);
 		
+		Conexion cn = new Conexion();
+		Connection miConexion = cn.getConexion(); 
+		
+		try {
+			cn.s = miConexion.createStatement();
+			cn.rs1 = cn.s.executeQuery("SELECT* FROM producto");
+			
+			Object [] fila = new Object[6];
+			
+			while (cn.rs1.next()) {
+				fila[0] = cn.rs1.getString("Nombre");
+				fila[1] = cn.rs1.getInt("Codigo");
+				fila[2] = cn.rs1.getString("Categoría");
+				fila[3] = cn.rs1.getInt("Precio");
+				fila[4] = cn.rs1.getInt("Stock");
+				fila[5] = cn.rs1.getString("Cif_proveedor");
+				tabla.addRow(fila);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			@Override
@@ -183,34 +210,33 @@ public class VentanaProductos extends JFrame {
 		contentPane.add(btnInicio);
 		
 		
-		JButton btnCargar = new JButton("Cargar Datos");
-		btnCargar.addActionListener(new ActionListener() {
+		JButton btnCargar = new JButton("Actualizar");
+		btnCargar.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				Conexion cn = new Conexion();
-				Connection miConexion = cn.getConexion(); 
-				
+			//table.
 				try {
 					cn.s = miConexion.createStatement();
-					cn.rs1 = cn.s.executeQuery("SELECT* FROM producto");
+					cn.rs1 = cn.s.executeQuery("SELECT* FROM podructo");
 					
 					Object [] fila = new Object[6];
-					
+					tabla.setRowCount(0);
 					while (cn.rs1.next()) {
 						fila[0] = cn.rs1.getString("Nombre");
 						fila[1] = cn.rs1.getInt("Codigo");
 						fila[2] = cn.rs1.getString("Categoría");
-						fila[3] = cn.rs1.getDouble("Precio");
+						fila[3] = cn.rs1.getInt("Precio");
 						fila[4] = cn.rs1.getInt("Stock");
 						fila[5] = cn.rs1.getString("Cif_proveedor");
 						tabla.addRow(fila);
+
 					}
 					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+				 
 			}
 		});
 		btnCargar.setForeground(Color.WHITE);

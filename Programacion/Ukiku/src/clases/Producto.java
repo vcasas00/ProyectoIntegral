@@ -11,6 +11,7 @@ public class Producto extends Ukiku {
 	 * Atributos
 	 */
 	public String nombre;
+	public int codigo;
 	public String categoría;
 	public double precio;
 	public int stock;
@@ -122,6 +123,16 @@ public class Producto extends Ukiku {
 	 */
 	public void setCif_Proveedor(String cif_Proveedor) {
 		this.cif_Proveedor = cif_Proveedor;
+	}
+	
+	
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	/**
