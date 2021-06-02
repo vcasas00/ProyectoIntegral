@@ -113,7 +113,7 @@ public class VentanaRegistro extends JFrame {
 				
 			}
 		});
-		btnRegistrarse.setBounds(138, 227, 144, 23);
+		btnRegistrarse.setBounds(233, 227, 144, 23);
 		contentPane.add(btnRegistrarse);
 		
 		lblUsuario = new JLabel("Usuario:");
@@ -133,6 +133,21 @@ public class VentanaRegistro extends JFrame {
 		lblIntroduceUnNombre.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblIntroduceUnNombre.setBounds(37, 87, 327, 23);
 		contentPane.add(lblIntroduceUnNombre);
+		
+		JButton btnVolverAlLogin = new JButton("Volver al login");
+		btnVolverAlLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				VentanaLogin vl = new VentanaLogin();
+				vl.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnVolverAlLogin.setForeground(new Color(255, 255, 255));
+		btnVolverAlLogin.setBackground(new Color(128, 128, 128));
+		btnVolverAlLogin.setBounds(10, 227, 144, 23);
+		contentPane.add(btnVolverAlLogin);
 		
 	}
 }
