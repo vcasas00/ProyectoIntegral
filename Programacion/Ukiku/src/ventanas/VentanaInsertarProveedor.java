@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VentanaInsertarProveedor extends JFrame {
 
@@ -44,6 +45,9 @@ public class VentanaInsertarProveedor extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaInsertarProveedor() {
+		setResizable(false);
+		setTitle("Insertar proveedores | Ukiku");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaInsertarProveedor.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 452);
 		contentPane = new JPanel();
@@ -103,23 +107,40 @@ public class VentanaInsertarProveedor extends JFrame {
 		btnInsertar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				String nombre = textFieldNombre.getText();
 				String cif = textFieldCif.getText();
 				String direccion = textFieldDireccion.getText();
 				int telefono = Integer.parseInt(textFieldTelefono.getText());
-				
+
 				try {
-					
-				Proveedor.insertar(nombre, cif, direccion, telefono);
-				JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
-				
+
+					if (!Proveedor.existeCif(cif)) {
+
+						Proveedor.insertar(nombre, cif, direccion, telefono);
+
+						if (Proveedor.existeCif(cif)) {
+
+							JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
+
+						} else {
+
+							JOptionPane.showMessageDialog(rootPane, "Error al insertar");
+
+						}
+
+					} else {
+
+						JOptionPane.showMessageDialog(contentPane, "Este proveedor ya existe");
+
+					}
+
 				} catch (Exception e1) {
 
 					JOptionPane.showMessageDialog(rootPane, "Fallo al insertar");
 
 					e1.printStackTrace();
-					
+
 				}
 				textFieldNombre.setText(null);
 				textFieldCif.setText(null);

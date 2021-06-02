@@ -45,9 +45,10 @@ public class VentanaInsertarProductos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaInsertarProductos() {
+		setResizable(false);
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(VentanaInsertarProductos.class.getResource("/img/logorene.png")));
-		setTitle("Ventana Insertar Productos");
+		setTitle("Insertar productos | Ukiku");
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 452);
 		contentPane = new JPanel();

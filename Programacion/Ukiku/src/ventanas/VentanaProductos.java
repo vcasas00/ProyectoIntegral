@@ -49,6 +49,7 @@ public class VentanaProductos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaProductos() {
+		setResizable(false);
 		setTitle("Productos | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProductos.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

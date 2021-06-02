@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import conectarBd.Conexion;
 
-public class Producto extends Ukiku {
+public class Producto {
 
 	/**
 	 * Atributos
@@ -40,7 +40,6 @@ public class Producto extends Ukiku {
 	/**
 	 * @return
 	 */
-	@Override
 	public String getNombre() {
 
 		return nombre;
@@ -50,7 +49,6 @@ public class Producto extends Ukiku {
 	/**
 	 * @param nombre
 	 */
-	@Override
 	public void setNombre(String nombre) {
 
 		this.nombre = nombre;
