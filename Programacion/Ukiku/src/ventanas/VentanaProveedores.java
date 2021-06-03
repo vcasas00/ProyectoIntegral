@@ -53,7 +53,7 @@ public class VentanaProveedores extends JFrame {
 		setResizable(false);
 		setTitle("Proveedores | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProveedores.class.getResource("/img/logorene.png")));
-		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(400, 400, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -73,6 +73,7 @@ public class VentanaProveedores extends JFrame {
 		tabla.addColumn("Dirección");
 		tabla.addColumn("Teléfono");
 
+		table.setDefaultEditor(Object.class, null);
 		scrollPane.setViewportView(table);
 		
 		Conexion cn = new Conexion();

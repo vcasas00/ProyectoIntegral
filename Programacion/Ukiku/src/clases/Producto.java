@@ -140,8 +140,28 @@ public class Producto {
 	 * @param stock
 	 * @param cifProveedor
 	 */
-	public void modificar(String nombre, String categoría, double precio, int stock, String cif_Proveedor) {
-		// TODO Auto-generated method stub
+	public static void modificacion(String nombre, int codigo, String categoría, double precio, int stock, String cifProveedor) {
+		Conexion cn = new Conexion();
+		Connection miConexion = cn.getConexion();
+
+		String consulta = 
+				"update producto set Nombre = '" + nombre + "', Categoría = '"+ categoría +"', Precio = '"+precio+"', Stock = '"+stock+"', Cif_proveedor='"+cifProveedor+"'  where codigo ='"+ codigo +"'";
+				
+
+		
+
+		try {
+			cn.s = miConexion.createStatement();
+
+
+
+			cn.rs = cn.s.executeUpdate( consulta );
+
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 
 	}
 

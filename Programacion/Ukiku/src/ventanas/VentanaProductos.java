@@ -52,7 +52,7 @@ public class VentanaProductos extends JFrame {
 		setResizable(false);
 		setTitle("Productos | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProductos.class.getResource("/img/logorene.png")));
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 400, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -108,6 +108,9 @@ public class VentanaProductos extends JFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				VentanaModificarProductos vmodpro = new VentanaModificarProductos();
+				vmodpro.setLocationRelativeTo(null);
+				vmodpro.setVisible(true);
 			}
 		});
 		btnModificar.setForeground(Color.WHITE);
@@ -218,7 +221,7 @@ public class VentanaProductos extends JFrame {
 			//table.
 				try {
 					cn.s = miConexion.createStatement();
-					cn.rs1 = cn.s.executeQuery("SELECT* FROM podructo");
+					cn.rs1 = cn.s.executeQuery("SELECT* FROM producto");
 					
 					Object [] fila = new Object[6];
 					tabla.setRowCount(0);
@@ -230,7 +233,7 @@ public class VentanaProductos extends JFrame {
 						fila[4] = cn.rs1.getInt("Stock");
 						fila[5] = cn.rs1.getString("Cif_proveedor");
 						tabla.addRow(fila);
-
+						table.setDefaultEditor(Object.class, null);
 					}
 					
 				} catch (SQLException e) {
