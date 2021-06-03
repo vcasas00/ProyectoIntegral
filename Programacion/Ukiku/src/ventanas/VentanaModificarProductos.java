@@ -99,8 +99,8 @@ public class VentanaModificarProductos extends JFrame {
 				int stock = Integer.parseInt(textFieldStock.getText());
 				String proveedor = textFieldProveedor.getText();
 
-				if (nombre.equalsIgnoreCase(" ") | categoria.equalsIgnoreCase(" ") | precio == 0 | stock == 0
-						| proveedor.equalsIgnoreCase(" ")) {
+				if (nombre.equalsIgnoreCase("") | categoria.equalsIgnoreCase("") | precio == 0 | stock == 0
+						| proveedor.equalsIgnoreCase("")) {
 					
 					JOptionPane.showMessageDialog(rootPane, "Hay algun campo vacio");
 
@@ -126,7 +126,7 @@ public class VentanaModificarProductos extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(72, 304, 88, 14);
 		contentPane.add(lblNewLabel_1);
-		btnInsertar.setBounds(223, 358, 101, 44);
+		btnInsertar.setBounds(101, 358, 130, 44);
 		contentPane.add(btnInsertar);
 
 		textFieldNombre = new JTextField();
@@ -168,11 +168,13 @@ public class VentanaModificarProductos extends JFrame {
 
 				Conexion cn = new Conexion();
 				int codigo = Integer.parseInt(textFieldCodigo.getText());
+				String sql = "SELECT* FROM producto where codigo= '" + codigo + "'";
+				
 				if (Producto.existeCodigo(codigo)) {
 
 					try {
-
-						cn.rs1 = cn.s.executeQuery("SELECT* FROM producto where codigo= '" + codigo + "'");
+						
+						cn.rs1 = cn.s.executeQuery(sql);
 						Object[] fila = new Object[6];
 
 						while (cn.rs1.next()) {
@@ -195,7 +197,9 @@ public class VentanaModificarProductos extends JFrame {
 					} catch (SQLException e1) {
 
 						e1.printStackTrace();
+						
 					}
+					
 				} else {
 
 					JOptionPane.showMessageDialog(contentPane, "El codigo introducido no existe");

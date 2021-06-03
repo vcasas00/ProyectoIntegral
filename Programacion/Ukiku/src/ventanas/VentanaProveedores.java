@@ -50,6 +50,7 @@ public class VentanaProveedores extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaProveedores() {
+		setBackground(Color.LIGHT_GRAY);
 		setResizable(false);
 		setTitle("Proveedores | Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaProveedores.class.getResource("/img/logorene.png")));
@@ -102,6 +103,11 @@ public class VentanaProveedores extends JFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				VentanaModificarProveedores vip = new VentanaModificarProveedores();
+				vip.setVisible(true);
+				vip.setLocationRelativeTo(null);
+				
 			}
 		});
 		btnModificar.setForeground(Color.WHITE);

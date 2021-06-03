@@ -101,9 +101,24 @@ public class Proveedor {
 	 * @param direccion
 	 * @param telefono
 	 */
-	public void modificar(String nombre, String cif, String direccion, int telefono) {
-		// TODO Auto-generated method stub
+	public static void modificar(String nombre, String cif, String direccion, int telefono) {
 
+		Conexion cn = new Conexion();
+		Connection miConexion = cn.getConexion();
+
+		String sql = "update proveedor set Nombre = '" + nombre + "', Dirección = '" + direccion + "', Teléfono = '"
+				+ telefono + "' where Cif = '" + cif + "'";
+
+		try {
+
+			cn.s = miConexion.createStatement();
+			cn.rs = cn.s.executeUpdate(sql);
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
 	}
 
 	/**
@@ -147,7 +162,7 @@ public class Proveedor {
 		return si;
 
 	}
-	
+
 	public static boolean existeCif(String cif) {
 		boolean si = false;
 		Conexion cn = new Conexion();

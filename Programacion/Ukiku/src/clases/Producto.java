@@ -122,8 +122,6 @@ public class Producto {
 	public void setCif_Proveedor(String cif_Proveedor) {
 		this.cif_Proveedor = cif_Proveedor;
 	}
-	
-	
 
 	public int getCodigo() {
 		return codigo;
@@ -140,27 +138,24 @@ public class Producto {
 	 * @param stock
 	 * @param cifProveedor
 	 */
-	public static void modificacion(String nombre, int codigo, String categoría, double precio, int stock, String cifProveedor) {
+	public static void modificacion(String nombre, int codigo, String categoría, double precio, int stock,
+			String cifProveedor) {
 		Conexion cn = new Conexion();
 		Connection miConexion = cn.getConexion();
 
-		String consulta = 
-				"update producto set Nombre = '" + nombre + "', Categoría = '"+ categoría +"', Precio = '"+precio+"', Stock = '"+stock+"', Cif_proveedor='"+cifProveedor+"'  where codigo ='"+ codigo +"'";
-				
-
-		
+		String consulta = "update producto set Nombre = '" + nombre + "', Categoría = '" + categoría + "', Precio = '"
+				+ precio + "', Stock = '" + stock + "', Cif_proveedor='" + cifProveedor + "'  where codigo ='" + codigo
+				+ "'";
 
 		try {
+
 			cn.s = miConexion.createStatement();
-
-
-
-			cn.rs = cn.s.executeUpdate( consulta );
-
+			cn.rs = cn.s.executeUpdate(consulta);
 
 		} catch (SQLException e) {
 
 			e.printStackTrace();
+
 		}
 
 	}
@@ -208,13 +203,13 @@ public class Producto {
 		return si;
 
 	}
-	
+
 	public static boolean estaBorradoCodigo(int codigo) {
-		
+
 		boolean si = true;
 		Conexion cn = new Conexion();
 		String sql = "select Codigo from producto where Codigo='" + codigo + "'";
-		
+
 		try {
 
 			cn.rs1 = cn.s.executeQuery(sql);
@@ -231,7 +226,7 @@ public class Producto {
 		}
 
 		return si;
-		
+
 	}
 
 	/**
