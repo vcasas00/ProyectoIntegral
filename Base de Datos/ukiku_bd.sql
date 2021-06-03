@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2021 a las 13:27:37
--- Versión del servidor: 10.4.18-MariaDB
+-- Tiempo de generación: 03-06-2021 a las 13:02:25
+-- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -27,20 +27,6 @@ USE `ukiku_bd`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE `cliente` (
-  `Nombre` text COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Apellido` text COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Dni` varchar(8) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Dirección` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Teléfono` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `producto`
 --
 
@@ -50,8 +36,7 @@ CREATE TABLE `producto` (
   `Categoría` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Precio` double NOT NULL,
   `Stock` int(11) NOT NULL,
-  `Cif_proveedor` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `dni_cliente` varchar(8) COLLATE utf8mb4_spanish_ci NOT NULL
+  `Cif_proveedor` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -81,22 +66,23 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Índices para tablas volcadas
+-- Volcado de datos para la tabla `usuario`
 --
 
+INSERT INTO `usuario` (`id`, `Nombre`, `Contraseña`) VALUES
+(1, 'admin', 'admin'),
+(2, 'rene', 'rene');
+
 --
--- Indices de la tabla `cliente`
+-- Índices para tablas volcadas
 --
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`Dni`);
 
 --
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`Codigo`),
-  ADD KEY `Provee` (`Cif_proveedor`),
-  ADD KEY `Comipara` (`dni_cliente`);
+  ADD KEY `Provee` (`Cif_proveedor`);
 
 --
 -- Indices de la tabla `proveedor`
@@ -118,7 +104,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -128,7 +114,6 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `Comipara` FOREIGN KEY (`dni_cliente`) REFERENCES `cliente` (`Dni`),
   ADD CONSTRAINT `Provee` FOREIGN KEY (`Cif_proveedor`) REFERENCES `proveedor` (`Cif`);
 COMMIT;
 
