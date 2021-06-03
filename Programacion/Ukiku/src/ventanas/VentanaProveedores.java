@@ -209,6 +209,7 @@ public class VentanaProveedores extends JFrame {
 						fila[2] = cn.rs1.getString("Dirección");
 						fila[3] = cn.rs1.getInt("Teléfono");
 						tabla.addRow(fila);
+						table.setDefaultEditor(Object.class, null);
 
 					}
 					

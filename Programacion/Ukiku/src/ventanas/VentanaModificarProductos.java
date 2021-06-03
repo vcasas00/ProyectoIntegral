@@ -99,17 +99,26 @@ public class VentanaModificarProductos extends JFrame {
 				int stock = Integer.parseInt(textFieldStock.getText());
 				String proveedor = textFieldProveedor.getText();
 
-				try {
+				if (nombre.equalsIgnoreCase(" ") | categoria.equalsIgnoreCase(" ") | precio == 0 | stock == 0
+						| proveedor.equalsIgnoreCase(" ")) {
+					
+					JOptionPane.showMessageDialog(rootPane, "Hay algun campo vacio");
 
-					Producto.modificacion(nombre, codigo, categoria, precio, stock, proveedor);
-					JOptionPane.showMessageDialog(rootPane, "Modificado corectamente");
+				} else {
+					
+					try {
 
-				} catch (Exception e1) {
+						Producto.modificacion(nombre, codigo, categoria, precio, stock, proveedor);
+						JOptionPane.showMessageDialog(rootPane, "Modificado corectamente");
 
-					JOptionPane.showMessageDialog(rootPane, "Fallo al modificar");
+					} catch (Exception e1) {
 
-					e1.printStackTrace();
+						e1.printStackTrace();
+
+					}
+					
 				}
+				
 			}
 		});
 
@@ -134,12 +143,14 @@ public class VentanaModificarProductos extends JFrame {
 		textFieldPrecio.setColumns(10);
 		textFieldPrecio.setBounds(170, 224, 130, 29);
 		contentPane.add(textFieldPrecio);
+		textFieldPrecio.setText("0");
 
 		textFieldStock = new JTextField();
 		textFieldStock.setBounds(170, 264, 130, 29);
 		contentPane.add(textFieldStock);
 		textFieldStock.setColumns(10);
-
+		textFieldStock.setText("0");
+		
 		textFieldProveedor = new JTextField();
 		textFieldProveedor.setColumns(10);
 		textFieldProveedor.setBounds(170, 299, 130, 29);
@@ -149,6 +160,7 @@ public class VentanaModificarProductos extends JFrame {
 		textFieldCodigo.setBounds(61, 43, 86, 20);
 		contentPane.add(textFieldCodigo);
 		textFieldCodigo.setColumns(10);
+		textFieldCodigo.setText("0");
 
 		JButton btnCargar = new JButton("Cargar");
 		btnCargar.addActionListener(new ActionListener() {
@@ -156,31 +168,38 @@ public class VentanaModificarProductos extends JFrame {
 
 				Conexion cn = new Conexion();
 				int codigo = Integer.parseInt(textFieldCodigo.getText());
-				try {
+				if (Producto.existeCodigo(codigo)) {
 
-					cn.rs1 = cn.s.executeQuery("SELECT* FROM producto where codigo= '" + codigo + "'");
-					Object[] fila = new Object[6];
+					try {
 
-					while (cn.rs1.next()) {
+						cn.rs1 = cn.s.executeQuery("SELECT* FROM producto where codigo= '" + codigo + "'");
+						Object[] fila = new Object[6];
 
-						fila[0] = cn.rs1.getString("Nombre");
-						fila[1] = cn.rs1.getInt("Codigo");
-						fila[2] = cn.rs1.getString("Categoría");
-						fila[3] = cn.rs1.getInt("Precio");
-						fila[4] = cn.rs1.getInt("Stock");
-						fila[5] = cn.rs1.getString("Cif_proveedor");
+						while (cn.rs1.next()) {
 
+							fila[0] = cn.rs1.getString("Nombre");
+							fila[1] = cn.rs1.getInt("Codigo");
+							fila[2] = cn.rs1.getString("Categoría");
+							fila[3] = cn.rs1.getInt("Precio");
+							fila[4] = cn.rs1.getInt("Stock");
+							fila[5] = cn.rs1.getString("Cif_proveedor");
+
+						}
+
+						textFieldNombre.setText(fila[0].toString());
+						textFieldCategoria.setText(fila[2].toString());
+						textFieldPrecio.setText(fila[3].toString());
+						textFieldStock.setText(fila[4].toString());
+						textFieldProveedor.setText(fila[5].toString());
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
 					}
+				} else {
 
-					textFieldNombre.setText(fila[0].toString());
-					textFieldCategoria.setText(fila[2].toString());
-					textFieldPrecio.setText(fila[3].toString());
-					textFieldStock.setText(fila[4].toString());
-					textFieldProveedor.setText(fila[5].toString());
+					JOptionPane.showMessageDialog(contentPane, "El codigo introducido no existe");
 
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
 
 			}
