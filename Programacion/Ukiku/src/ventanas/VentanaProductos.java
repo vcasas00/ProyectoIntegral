@@ -74,7 +74,7 @@ public class VentanaProductos extends JFrame {
 		tabla.addColumn("Stock");
 		tabla.addColumn("Cif_proveedor");
 		
-		
+		table.setDefaultEditor(Object.class, null);
 		scrollPane.setViewportView(table);
 		
 		Conexion cn = new Conexion();

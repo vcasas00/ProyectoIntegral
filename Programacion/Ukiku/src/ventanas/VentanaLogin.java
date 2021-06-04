@@ -73,17 +73,23 @@ public class VentanaLogin extends JFrame {
 				
 				Usuario u = new Usuario();
 
-				if (u.acceder(textFieldUsuario.getText(), textFieldContraseña.getText())) {
-					JOptionPane.showMessageDialog(rootPane, "Login Correcto");
-					VentanaEleccion l = new VentanaEleccion();
-					l.setLocationRelativeTo(null);
-					l.setVisible(true);
-					setVisible(false);
+				try {
+					if (u.acceder(textFieldUsuario.getText(), textFieldContraseña.getText())) {
+						JOptionPane.showMessageDialog(rootPane, "Login Correcto");
+						VentanaEleccion l = new VentanaEleccion();
+						l.setLocationRelativeTo(null);
+						l.setVisible(true);
+						setVisible(false);
+						
+					} else {
+						
+						JOptionPane.showMessageDialog(rootPane, "Login Incorrecto");
+						
+					}
+				} catch (Exception e) {
 					
-				} else {
-					
-					JOptionPane.showMessageDialog(rootPane, "Login Incorrecto");
-					
+					JOptionPane.showMessageDialog(contentPane, "Error en el login");
+					e.printStackTrace();
 				}
 
 			}

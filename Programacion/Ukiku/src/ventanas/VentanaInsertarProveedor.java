@@ -47,7 +47,8 @@ public class VentanaInsertarProveedor extends JFrame {
 	public VentanaInsertarProveedor() {
 		setResizable(false);
 		setTitle("Insertar proveedores | Ukiku");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaInsertarProveedor.class.getResource("/img/logorene.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(VentanaInsertarProveedor.class.getResource("/img/logorene.png")));
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 350, 452);
 		contentPane = new JPanel();
@@ -102,30 +103,40 @@ public class VentanaInsertarProveedor extends JFrame {
 		textFieldTelefono.setColumns(10);
 		textFieldTelefono.setBounds(170, 270, 130, 29);
 		contentPane.add(textFieldTelefono);
+		textFieldTelefono.setText("0");
 
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 
-				String nombre = textFieldNombre.getText();
-				String cif = textFieldCif.getText();
-				String direccion = textFieldDireccion.getText();
-				int telefono = Integer.parseInt(textFieldTelefono.getText());
-
 				try {
+					
+					String nombre = textFieldNombre.getText();
+					String cif = textFieldCif.getText();
+					String direccion = textFieldDireccion.getText();
+					int telefono = Integer.parseInt(textFieldTelefono.getText());
 
 					if (!Proveedor.existeCif(cif)) {
 
-						Proveedor.insertar(nombre, cif, direccion, telefono);
+						if (nombre.equalsIgnoreCase("") | cif.equalsIgnoreCase("") | direccion.equalsIgnoreCase("")
+								| textFieldTelefono.getText().equalsIgnoreCase("")) {
 
-						if (Proveedor.existeCif(cif)) {
-
-							JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
+							JOptionPane.showMessageDialog(contentPane, "Hay algun campo vacio");
 
 						} else {
 
-							JOptionPane.showMessageDialog(rootPane, "Error al insertar");
+							Proveedor.insertar(nombre, cif, direccion, telefono);
+
+							if (Proveedor.existeCif(cif)) {
+
+								JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
+
+							} else {
+
+								JOptionPane.showMessageDialog(rootPane, "Error al insertar");
+
+							}
 
 						}
 
@@ -137,15 +148,17 @@ public class VentanaInsertarProveedor extends JFrame {
 
 				} catch (Exception e1) {
 
+					
 					JOptionPane.showMessageDialog(rootPane, "Fallo al insertar");
 
 					e1.printStackTrace();
 
 				}
+				
 				textFieldNombre.setText(null);
 				textFieldCif.setText(null);
 				textFieldDireccion.setText(null);
-				textFieldTelefono.setText(null);
+				textFieldTelefono.setText("0");
 			}
 		});
 		btnInsertar.setForeground(Color.BLACK);

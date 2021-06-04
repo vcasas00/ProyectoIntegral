@@ -17,6 +17,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import clases.Producto;
+import clases.Proveedor;
 
 public class VentanaInsertarProductos extends JFrame {
 
@@ -91,16 +92,35 @@ public class VentanaInsertarProductos extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				String nombre = textFieldNombre.getText();
-				String categoria = textFieldCategoria.getText();
-				double precio = Integer.parseInt(textFieldPrecio.getText());
-				int stock = Integer.parseInt(textFieldStock.getText());
-				String proveedor = textFieldProveedor.getText();
-
 				try {
+					
+					String nombre = textFieldNombre.getText();
+					String categoria = textFieldCategoria.getText();
+					double precio = Integer.parseInt(textFieldPrecio.getText());
+					int stock = Integer.parseInt(textFieldStock.getText());
+					String proveedor = textFieldProveedor.getText();
 
-					Producto.insertar(nombre, categoria, precio, stock, proveedor);
-					JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
+					if (nombre.equalsIgnoreCase("") | categoria.equalsIgnoreCase("")
+							| textFieldPrecio.getText().equalsIgnoreCase("")
+							| textFieldStock.getText().equalsIgnoreCase("") | proveedor.equalsIgnoreCase("")) {
+
+						JOptionPane.showMessageDialog(contentPane, "hay algun campo vacio");
+
+					} else {
+						
+						if(Proveedor.existeCif(proveedor)) {
+							
+							Producto.insertar(nombre, categoria, precio, stock, proveedor);
+							JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
+							
+						} else {
+							
+							JOptionPane.showMessageDialog(contentPane, "El Proveedor introducido no existe");
+							
+						}
+						
+					}
+					
 
 				} catch (Exception e1) {
 
@@ -110,8 +130,8 @@ public class VentanaInsertarProductos extends JFrame {
 				}
 				textFieldNombre.setText(null);
 				textFieldCategoria.setText(null);
-				textFieldPrecio.setText(null);
-				textFieldStock.setText(null);
+				textFieldPrecio.setText("0");
+				textFieldStock.setText("0");
 				textFieldProveedor.setText(null);
 			}
 		});
@@ -137,16 +157,18 @@ public class VentanaInsertarProductos extends JFrame {
 		textFieldPrecio.setColumns(10);
 		textFieldPrecio.setBounds(170, 180, 130, 29);
 		contentPane.add(textFieldPrecio);
+		textFieldPrecio.setText("0");
 
 		textFieldStock = new JTextField();
 		textFieldStock.setBounds(170, 220, 130, 29);
 		contentPane.add(textFieldStock);
 		textFieldStock.setColumns(10);
-		
+		textFieldStock.setText("0");
+
 		textFieldProveedor = new JTextField();
 		textFieldProveedor.setColumns(10);
 		textFieldProveedor.setBounds(170, 260, 130, 29);
 		contentPane.add(textFieldProveedor);
-		
+
 	}
 }
