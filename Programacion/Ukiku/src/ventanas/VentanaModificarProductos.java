@@ -19,12 +19,11 @@ import javax.swing.border.EmptyBorder;
 
 import clases.Producto;
 import conectarBd.Conexion;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaModificarProductos extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldStock;
@@ -35,7 +34,7 @@ public class VentanaModificarProductos extends JFrame {
 	private JTextField textFieldCodigo;
 
 	/**
-	 * Create the frame.
+	 * Creación de la VentanaModificarProductos
 	 */
 	public VentanaModificarProductos() {
 		setIconImage(
@@ -54,7 +53,7 @@ public class VentanaModificarProductos extends JFrame {
 		lblInserteLosDatos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInserteLosDatos.setBounds(10, 11, 314, 21);
 		contentPane.add(lblInserteLosDatos);
-
+		
 		JLabel lblNewLabel = new JLabel("Nombre :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(92, 157, 68, 14);
@@ -74,7 +73,9 @@ public class VentanaModificarProductos extends JFrame {
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_3.setBounds(104, 266, 56, 21);
 		contentPane.add(lblNewLabel_1_3);
-
+		/**
+		 * Creación del botón modificar, Una vez están todos los campos rellenados, el usuario pulsa este botón y se modifican los campos en el producto.
+		 */
 		JButton btnInsertar = new JButton("Modificar");
 		btnInsertar.setForeground(Color.BLACK);
 		btnInsertar.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -151,7 +152,9 @@ public class VentanaModificarProductos extends JFrame {
 		contentPane.add(textFieldCodigo);
 		textFieldCodigo.setColumns(10);
 		textFieldCodigo.setText("0");
-
+		/**
+		 * Creación boton cargar, el usuario introduce el codigo del productos para cargar sus datos
+		 */
 		JButton btnCargar = new JButton("Cargar");
 		btnCargar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

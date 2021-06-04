@@ -20,12 +20,11 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaModificarProveedores extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldCif;
@@ -34,7 +33,7 @@ public class VentanaModificarProveedores extends JFrame {
 	private JTextField textFieldTelefono;
 
 	/**
-	 * Create the frame.
+	 * Creación de la VentanaModificarProveedores
 	 */
 	public VentanaModificarProveedores() {
 		setResizable(false);
@@ -59,7 +58,9 @@ public class VentanaModificarProveedores extends JFrame {
 		textFieldCif.setColumns(10);
 		textFieldCif.setBounds(67, 43, 86, 20);
 		contentPane.add(textFieldCif);
-
+/**
+ * Creación boton cargar, el usuario introduce el codigo del proveedor para cargar sus datos
+ */
 		JButton btnCargar = new JButton("Cargar");
 		btnCargar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -135,7 +136,9 @@ public class VentanaModificarProveedores extends JFrame {
 		textFieldTelefono.setColumns(10);
 		textFieldTelefono.setBounds(176, 224, 130, 29);
 		contentPane.add(textFieldTelefono);
-
+/**
+ * Creación del botón modificar, Una vez están todos los campos rellenados, el usuario pulsa este botón y se modifican los campos en el proveedor.
+ */
 		JButton btnInsertar = new JButton("Modificar");
 		btnInsertar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

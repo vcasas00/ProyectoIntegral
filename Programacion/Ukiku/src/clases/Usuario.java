@@ -8,7 +8,7 @@ import conectarBd.Conexion;
  * 
  * @author René, Vicent, Joaquín
  * 
- *         <b>Clase Useario</b>
+ *         
  *
  */
 
@@ -73,9 +73,9 @@ public class Usuario {
 	}
 
 	/**
-	 * @param nombre
-	 * @param contraseña
-	 * 
+	 * @param nombre Es el nombre del usuario
+	 * @param contraseña Es la contraseña del usuario
+	 * @return acceso Devuelve si el usuario puede acceder o no
 	 *                   Comprueba que el nombre y contraseña introducidos por
 	 *                   parametros coincidan con los de la base de datos.
 	 */
@@ -108,8 +108,8 @@ public class Usuario {
 	}
 
 	/**
-	 * @param nombre
-	 * @param contraseña
+	 * @param nombre Es el nombre del usuario
+	 * @param contraseña Es la contraseña del usuario
 	 * 
 	 *                   Añade el nombre y contraseña introducidos por parametro a
 	 *                   la base de datos.
@@ -131,7 +131,12 @@ public class Usuario {
 		c.desconectar();
 
 	}
-
+	/**
+	 * @param nombre Es el nombre del usuario
+	 * @return Devuelve si existe el Usuario
+	 *                   Comprueba el nombre introducido por parametro a
+	 *                   la base de datos, si existe, no te deja crearlo.
+	*/
 	public boolean existeUsuario(String nombre) {
 		Conexion c = new Conexion();
 		boolean existeUsuario = false;

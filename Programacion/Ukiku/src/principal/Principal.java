@@ -1,7 +1,11 @@
 package principal;
 
 import ventanas.VentanaLogin;
-
+/**
+ * @author René, Vicent, Joaquín
+ * 
+ *
+ */
 public class Principal {
 	
 	public static void main(String[] args) {

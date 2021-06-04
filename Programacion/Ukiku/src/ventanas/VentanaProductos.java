@@ -24,19 +24,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaProductos extends JFrame {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField textFieldCodigoEliminar;
 	
 	/**
-	 * Create the frame.
+	 * Creación de la ventana Productos, donde se ven los datos de todos los productos.
 	 */
 	public VentanaProductos() {
 		setResizable(false);
@@ -53,7 +53,9 @@ public class VentanaProductos extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 240, 838, 461);
 		contentPane.add(scrollPane);
-		
+		/**
+		 * Creación de la tabla que muestra los datos de los Productos
+		 */
 		DefaultTableModel tabla = new DefaultTableModel();
 		table = new JTable(tabla);
 		
@@ -87,12 +89,13 @@ public class VentanaProductos extends JFrame {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 
-
+		/**
+		 * Creación del botón Modificar, abre la VentanaModificarProductos
+		 */
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
@@ -117,7 +120,9 @@ public class VentanaProductos extends JFrame {
 		JLabel lblCodigoDeEl = new JLabel("Codigo del producto a eliminar:  ");
 		lblCodigoDeEl.setBounds(858, 465, 204, 14);
 		contentPane.add(lblCodigoDeEl);
-		
+		/**
+		 * Creación del botón Eliminar, coge texto del textFieldCodigoEliminar y al pulsar el botón lo elimina.
+		 */
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			@Override
@@ -151,7 +156,9 @@ public class VentanaProductos extends JFrame {
 		btnEliminar.setBackground(Color.GRAY);
 		btnEliminar.setBounds(858, 390, 165, 64);
 		contentPane.add(btnEliminar);
-		
+		/**
+		 * Creación del botón Insertar, abre la ventana VentanaInsertarProductos.
+		 */
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
 			@Override
@@ -168,7 +175,9 @@ public class VentanaProductos extends JFrame {
 		btnInsertar.setBounds(858, 315, 165, 64);
 		contentPane.add(btnInsertar);
 		
-		
+		/**
+		 * Creación del botón Proveedores, abre la ventana VentanaProveedores.
+		 */
 		JButton btnProveedores = new JButton("Proveedores");
 		btnProveedores.addActionListener(new ActionListener() {
 			@Override
@@ -185,7 +194,9 @@ public class VentanaProductos extends JFrame {
 		btnProveedores.setBackground(Color.GRAY);
 		btnProveedores.setBounds(10, 712, 275, 38);
 		contentPane.add(btnProveedores);
-		
+		/**
+		 * Creación del botón cerrar sesión, al hacer clic se cierra la sesión actual 
+		 */
 		JButton btnInicio = new JButton("Cerrar sesion");
 		btnInicio.addActionListener(new ActionListener() {
 			@Override
@@ -203,7 +214,9 @@ public class VentanaProductos extends JFrame {
 		btnInicio.setBounds(1009, 696, 165, 54);
 		contentPane.add(btnInicio);
 		
-		
+		/**
+		 * Creación del botón Actualizar, actualiza la base de datos por si se modifico, inserto o elimino.
+		 */
 		JButton btnCargar = new JButton("Actualizar");
 		btnCargar.addActionListener(new ActionListener(){
 			@Override
@@ -227,7 +240,7 @@ public class VentanaProductos extends JFrame {
 					}
 					
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 				 

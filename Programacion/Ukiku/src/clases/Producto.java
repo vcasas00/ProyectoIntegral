@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import conectarBd.Conexion;
-
+/**
+ * 
+ * @author Rene, Ximo, Vicent
+ *
+ */
 public class Producto {
 
 	/**
@@ -18,7 +22,7 @@ public class Producto {
 	public String cif_Proveedor;
 
 	/**
-	 * constructores
+	 * Constructores
 	 */
 	public Producto() {
 	}
@@ -38,7 +42,7 @@ public class Producto {
 	 */
 
 	/**
-	 * @return
+	 * @return Devuelve el nombre
 	 */
 	public String getNombre() {
 
@@ -47,7 +51,7 @@ public class Producto {
 	}
 
 	/**
-	 * @param nombre
+	 * @param nombre Es el nombre del producto.
 	 */
 	public void setNombre(String nombre) {
 
@@ -56,7 +60,7 @@ public class Producto {
 	}
 
 	/**
-	 * @return
+	 * @return Devuelve la categoria
 	 */
 	public String getCategoria() {
 
@@ -65,7 +69,7 @@ public class Producto {
 	}
 
 	/**
-	 * @param categoría
+	 * @param categoría Es la categoria del producto
 	 */
 	public void setCategoria(String categoría) {
 
@@ -74,7 +78,7 @@ public class Producto {
 	}
 
 	/**
-	 * @return
+	 * @return Devuelve el precio
 	 */
 	public double getPrecio() {
 
@@ -83,7 +87,7 @@ public class Producto {
 	}
 
 	/**
-	 * @param precio
+	 * @param precio Es el precio del producto
 	 */
 	public void setPrecio(double precio) {
 
@@ -92,7 +96,7 @@ public class Producto {
 	}
 
 	/**
-	 * @return
+	 * @return Devuelve el stock
 	 */
 	public int getStock() {
 
@@ -101,7 +105,7 @@ public class Producto {
 	}
 
 	/**
-	 * @param stock
+	 * @param stock Es el stock del producto
 	 */
 	public void setStock(int stock) {
 
@@ -110,14 +114,14 @@ public class Producto {
 	}
 
 	/**
-	 * @return
+	 * @return Devuelve el Cif_proveedor
 	 */
 	public String getCif_Proveedor() {
 		return cif_Proveedor;
 	}
 
 	/**
-	 * @param cif_Proveedor
+	 * @param cif_Proveedor Es el Cif_proveedor
 	 */
 	public void setCif_Proveedor(String cif_Proveedor) {
 		this.cif_Proveedor = cif_Proveedor;
@@ -132,11 +136,13 @@ public class Producto {
 	}
 
 	/**
-	 * @param nombre
-	 * @param categoría
-	 * @param precio
-	 * @param stock
-	 * @param cifProveedor
+	 * @param nombre Es el nombre del producto
+	 * @param codigo Es el codigo del producto
+	 * @param categoría Es la categoria del producto
+	 * @param precio Es el precio del producto
+	 * @param stock Es el stock del prodcuto
+	 * @param cifProveedor Es el CifProveedor del producto
+	 * Creación del metodo modificacion, permite modificar un producto.
 	 */
 	public static void modificacion(String nombre, int codigo, String categoría, double precio, int stock,
 			String cifProveedor) {
@@ -162,6 +168,7 @@ public class Producto {
 
 	/**
 	 * @param codigo
+	 * Creación del metodo borrar, permite borrar un producto.
 	 */
 	public static void borrar(int codigo) {
 
@@ -178,7 +185,12 @@ public class Producto {
 		}
 
 	}
-
+/**
+ * 
+ * @param codigo Es el codigo del producto
+ * @return Devuelve true si codigo existe. Devuelve false si codigo no existe.
+ * Creación del metodo existeCodigo que comprueba si existe el codigo del producto.
+ */
 	public static boolean existeCodigo(int codigo) {
 
 		boolean si = false;
@@ -203,7 +215,12 @@ public class Producto {
 		return si;
 
 	}
-
+	/**
+	 * 
+	 * @param codigo Es el codigo del producto
+	 * @return Devuelve true si codigo NO existe. Devuelve false si codigo existe.
+	 * Creación del metodo estaBorradoCodigo que comprueba si esta borrado el codigo del producto.
+	 */
 	public static boolean estaBorradoCodigo(int codigo) {
 
 		boolean si = true;
@@ -229,13 +246,14 @@ public class Producto {
 
 	}
 
-	/**
-	 * @param nombre
-	 * @param categoria
-	 * @param precio
-	 * @param stock
-	 * @param cifProveedor
-	 * @param dniCliente
+	/** 
+	 * @param nombre Es el nombre del producto
+	 * @param categoría Es la categoria del producto
+	 * @param precio Es el precio del producto
+	 * @param stock Es el stock del producto
+	 * @param cifProveedor Es el cifproveedor del producto
+	 * 
+	 * Creación del metodo insertar, permite insertar productos a la base de datos.
 	 */
 	public static void insertar(String nombre, String categoría, double precio, int stock, String cifProveedor) {
 		Conexion cn = new Conexion();
@@ -248,7 +266,6 @@ public class Producto {
 							+ categoría + "', '" + precio + "', '" + stock + "', '" + cifProveedor + "')");
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -18,12 +18,11 @@ import javax.swing.border.EmptyBorder;
 
 import clases.Producto;
 import clases.Proveedor;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaInsertarProductos extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldStock;
@@ -33,7 +32,7 @@ public class VentanaInsertarProductos extends JFrame {
 	private JTextField textFieldProveedor;
 
 	/**
-	 * Create the frame.
+	 * Creación de la ventana VentanaInsertarProductos
 	 */
 	public VentanaInsertarProductos() {
 		setResizable(false);
@@ -47,6 +46,9 @@ public class VentanaInsertarProductos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		/**
+		 * Mensaje de recordatorio para el usuario, debe exisistir antes el proveedor que el producto.
+		 */
 		JOptionPane.showMessageDialog(contentPane, "Recuerde insertar el proveedor antes que el producto.");
 
 		JLabel lblInserteLosDatos = new JLabel("Inserte los datos del Producto");
@@ -74,7 +76,9 @@ public class VentanaInsertarProductos extends JFrame {
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_3.setBounds(92, 222, 56, 21);
 		contentPane.add(lblNewLabel_1_3);
-
+/**
+ * Creación del botón Insertar, inserta un nuevo producto cuando todos los campos estan llenos y el proveedor existe.
+ */
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.setForeground(Color.BLACK);
 		btnInsertar.setFont(new Font("Tahoma", Font.BOLD, 16));

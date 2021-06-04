@@ -18,7 +18,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Toolkit;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaLogin extends JFrame {
 
 	
@@ -36,7 +38,7 @@ public class VentanaLogin extends JFrame {
 	private JLabel lblInicioDeSesion;
 
 	/**
-	 * Create the frame.
+	 * Creación de la ventana VentanaLogin
 	 */
 	public VentanaLogin() {
 		

@@ -11,19 +11,19 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaEleccion extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblEligeAQue_1;
 	private JButton btnProveedor;
+	private JButton btnProductos;
 
 	/**
-	 * Create the frame.
+	 * Creación de la ventana VentanaElección, donde puedes elegir a que ventana quieres ir, VentanaProductos o VentanaProveedores.
 	 */
 	public VentanaEleccion() {
 		setTitle("Eleccion de registro | Ukiku");
@@ -44,7 +44,9 @@ public class VentanaEleccion extends JFrame {
 		lblEligeAQue_1.setBounds(0, 11, 387, 50);
 		contentPane.add(lblEligeAQue_1);
 		
-		
+		/**
+		 * Creación del botón Proveedor, al hacer clic accedes a VentanaProveedores.
+		 */
 		btnProveedor = new JButton("Proveedor");
 		btnProveedor.addActionListener(new ActionListener() {
 			@Override
@@ -60,7 +62,9 @@ public class VentanaEleccion extends JFrame {
 		btnProveedor.setBackground(new Color(107, 142, 35));
 		btnProveedor.setBounds(46, 72, 115, 59);
 		contentPane.add(btnProveedor);
-		
+		/**
+		 *  * Creación del botón Productos, al hacer clic accedes a VentanaProductos.
+		 */
 		btnProductos = new JButton("Productos");
 		btnProductos.addActionListener(new ActionListener() {
 			@Override

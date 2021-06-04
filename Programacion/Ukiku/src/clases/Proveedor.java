@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import conectarBd.Conexion;
 
 /**
- * @author DAM
+ * @author Rene, Ximo, Vicent
  * 
- *         <b>Clase proveedor</b>
+ *        
  */
 public class Proveedor {
 
@@ -40,66 +40,67 @@ public class Proveedor {
 	 */
 
 	/**
-	 * @return
+	 * @return Devuelve el nombre del proveedor
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * @param nombre
-	 */
+	 * @param nombre Es el nombre del proveedor
+	*/
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * @return
+	 * @return devuelve el cif del proveedor
 	 */
 	public String getCif() {
 		return cif;
 	}
 
 	/**
-	 * @param cif
+	 * @param cif Es el cif del proveedor
 	 */
 	public void setCif(String cif) {
 		this.cif = cif;
 	}
 
 	/**
-	 * @return
+	 * @return devuelve la direccion del proveedor
 	 */
 	public String getDireccion() {
 		return direccion;
 	}
 
 	/**
-	 * @param direccion
+	 * @param direccion Es la dirección del proveedor
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
 	/**
-	 * @return
+	 * @return devuelve el telefono
 	 */
 	public int getTelefono() {
 		return telefono;
 	}
 
 	/**
-	 * @param telefono
+	 * @param telefono Es el telefono del proveedor
 	 */
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 
 	/**
-	 * @param nombre
-	 * @param cif
-	 * @param direccion
-	 * @param telefono
+	 * @param nombre Es el nombre del proveedor
+	 * @param cif Es el cif del proveedor
+	 * @param direccion Es la dirección del proveedor
+	 * @param telefono Es el telefono del proveedor
+	 * Creación del metodo modificacion, permite modificar un proveedor.
 	 */
 	public static void modificar(String nombre, String cif, String direccion, int telefono) {
 
@@ -122,10 +123,8 @@ public class Proveedor {
 	}
 
 	/**
-	 * @param nombre
-	 * @param cif
-	 * @param direccion
-	 * @param telefono
+	 * @param cif Es el cif del proveedor
+	 * Creación del metodo borrar, permite borrar un proveedor.
 	 */
 	public static void borrar(String cif) {
 
@@ -139,7 +138,12 @@ public class Proveedor {
 		}
 
 	}
-
+	/**
+	 * 
+	 * @param cif Es el cif del proveedor
+	 * @return Devuelve true si CIF NO existe. Devuelve false si CIF existe.
+	 * Creación del metodo estaBorradoCif que comprueba si existe el CIF del proveedor.
+	 */
 	public static boolean estaBorradoCif(String cif) {
 		boolean si = true;
 		Conexion cn = new Conexion();
@@ -162,7 +166,12 @@ public class Proveedor {
 		return si;
 
 	}
-
+	/**
+	 * 
+	 * @param cif Es el cif del proveedor
+	 * @return Devuelve true si CIF existe. Devuelve false si CIF NO existe.
+	 * Creación del metodo existeCif que comprueba si existe el CIF del proveedor.
+	 */
 	public static boolean existeCif(String cif) {
 		boolean si = false;
 		Conexion cn = new Conexion();
@@ -187,10 +196,11 @@ public class Proveedor {
 	}
 
 	/**
-	 * @param nombre
-	 * @param cif
-	 * @param direccion
-	 * @param telefono
+	 * @param nombre Es el nombre del proveedor
+	 * @param cif Es el cif del proveedor
+	 * @param direccion Es la dirección del proveedor
+	 * @param telefono Es el telefono del proveedor
+	 * Creación del metodo insertar, permite insertar proveedores a la base de datos.
 	 */
 	public static void insertar(String nombre, String cif, String direccion, int telefono) {
 		Conexion cn = new Conexion();

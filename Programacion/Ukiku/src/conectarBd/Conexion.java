@@ -5,7 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/**
+ * @author René, Vicent, Joaquín
+ * 
+ *
+ */
 public class Conexion {
 
 	private Connection conexion = null;
@@ -17,6 +21,9 @@ public class Conexion {
 	public int rs;
 	public ResultSet rs1;
 
+	/**
+	 * Creacion de la conexion
+	 */
 	public Conexion() {
 
 		try {
@@ -33,13 +40,19 @@ public class Conexion {
 		}
 
 	}
-
+/**
+ * Creación método getConexion, 
+ * @return te devuelve la conexion
+ */
 	public Connection getConexion() {
 
 		return conexion;
 
 	}
-
+	/**
+	 * Creación método desconectar, te desconecta de la conexion
+	 * 
+	 */
 	public void desconectar() {
 
 		try {

@@ -19,7 +19,7 @@ import java.awt.Toolkit;
 /**
  * 
  * @author René, Vicent, Joaquín
- *
+ *Creacion clase VentanaRegistro.
  */
 public class VentanaRegistro extends JFrame {
 
@@ -37,7 +37,7 @@ public class VentanaRegistro extends JFrame {
 	private JLabel lblIntroduceUnNombre;
 
 	/**
-	 * Create the frame.
+	 * Creación de la ventana VentanaRegistro, donde se abre un formulario de registro.
 	 */
 	public VentanaRegistro() {
 		setTitle("Registro - Ukiku");
@@ -67,6 +67,9 @@ public class VentanaRegistro extends JFrame {
 		textFieldContraseña.setColumns(10);
 		textFieldContraseña.setBounds(138, 156, 144, 20);
 		contentPane.add(textFieldContraseña);
+		/**
+		 * Creación del botón registrarse, una vez llenos los campos de Usuario y contraseña, clic y estarías registrado.
+		 */
 		
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setForeground(new Color(255, 255, 255));
@@ -123,7 +126,9 @@ public class VentanaRegistro extends JFrame {
 		lblIntroduceUnNombre.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblIntroduceUnNombre.setBounds(37, 87, 327, 23);
 		contentPane.add(lblIntroduceUnNombre);
-		
+		/**
+		 * Creación del botón VolverAlLogin, para poder volver al login sin tener que cerrar la app.
+		 */
 		JButton btnVolverAlLogin = new JButton("Volver al login");
 		btnVolverAlLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

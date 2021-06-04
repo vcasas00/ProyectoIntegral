@@ -18,12 +18,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaInsertarProveedor extends JFrame {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFieldNombre;
@@ -32,7 +32,7 @@ public class VentanaInsertarProveedor extends JFrame {
 	private JTextField textFieldTelefono;
 
 	/**
-	 * Create the frame.
+	 * Creacion de la ventana VentanaInsertarProveedor
 	 */
 	public VentanaInsertarProveedor() {
 		setResizable(false);
@@ -94,7 +94,9 @@ public class VentanaInsertarProveedor extends JFrame {
 		textFieldTelefono.setBounds(170, 270, 130, 29);
 		contentPane.add(textFieldTelefono);
 		textFieldTelefono.setText("0");
-
+		/**
+		 * Creación del botón insertar, donde si estan todos los campos llenos correctamente registra el producto.
+		 */
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
 			@Override
@@ -119,7 +121,7 @@ public class VentanaInsertarProveedor extends JFrame {
 							Proveedor.insertar(nombre, cif, direccion, telefono);
 
 							if (Proveedor.existeCif(cif)) {
-
+							
 								JOptionPane.showMessageDialog(rootPane, "Insertado corectamente");
 
 							} else {

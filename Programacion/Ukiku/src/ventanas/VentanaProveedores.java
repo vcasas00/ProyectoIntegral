@@ -25,19 +25,19 @@ import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
+/**
+ * @author René, Vicent, Joaquín
+ */
 public class VentanaProveedores extends JFrame {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField textFieldCif;
 
 	/**
-	 * Create the frame.
+	 * Creación de la ventana Proveedores, muestra todos los datos de todos los proveedores existentes.
 	 */
 	public VentanaProveedores() {
 		setBackground(Color.LIGHT_GRAY);
@@ -55,7 +55,9 @@ public class VentanaProveedores extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 240, 838, 461);
 		contentPane.add(scrollPane);
-
+/**
+ * Creación de la tabla donde se mostrarán todos los datos de los Proveedores.
+ */
 		DefaultTableModel tabla = new DefaultTableModel();
 		table = new JTable(tabla);
 
@@ -85,10 +87,12 @@ public class VentanaProveedores extends JFrame {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-
+/**
+ * Creación del botón Modificar, abre la ventana VentanaModificarProveedores para cambiar algun campo de los Proveedores.
+ */
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			@Override
@@ -104,7 +108,9 @@ public class VentanaProveedores extends JFrame {
 		btnModificar.setBackground(Color.GRAY);
 		btnModificar.setBounds(858, 240, 165, 64);
 		contentPane.add(btnModificar);
-
+/**
+ * Creación del botón Eliminar, coge texto del textFieldCif y elimina el Proveedor.
+ */
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			@Override
@@ -138,7 +144,9 @@ public class VentanaProveedores extends JFrame {
 		btnEliminar.setBackground(Color.GRAY);
 		btnEliminar.setBounds(858, 390, 165, 64);
 		contentPane.add(btnEliminar);
-
+		/**
+		 * Creación del botón Insertar, abre la ventana VentanaInsertarProveedor.
+		 */
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
 			@Override
@@ -152,7 +160,9 @@ public class VentanaProveedores extends JFrame {
 		btnInsertar.setBackground(Color.GRAY);
 		btnInsertar.setBounds(858, 315, 165, 64);
 		contentPane.add(btnInsertar);
-
+/**
+ * Creación del botón Productos, cambia a la ventana VentanaProductos.
+ */
 		JButton btnProveedores = new JButton("Productos");
 		btnProveedores.addActionListener(new ActionListener() {
 			@Override
@@ -169,7 +179,9 @@ public class VentanaProveedores extends JFrame {
 		btnProveedores.setBackground(Color.GRAY);
 		btnProveedores.setBounds(10, 712, 275, 38);
 		contentPane.add(btnProveedores);
-
+/**
+ * Creación del botón Cerrar Sesión, cierra la sesión actual.
+ */
 		JButton btnInicio = new JButton("Cerrar sesion");
 		btnInicio.addActionListener(new ActionListener() {
 			@Override
@@ -186,7 +198,9 @@ public class VentanaProveedores extends JFrame {
 		btnInicio.setBackground(Color.GRAY);
 		btnInicio.setBounds(1009, 696, 165, 54);
 		contentPane.add(btnInicio);
-
+/**
+ * Creación del botón Actualizar, recarga la tabla por si ha habido alguna modificacion, insercion o eliminacion.
+ */
 		JButton btnCargar = new JButton("Actualizar");
 		btnCargar.addActionListener(new ActionListener(){
 			@Override
@@ -210,7 +224,7 @@ public class VentanaProveedores extends JFrame {
 					}
 					
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 				 
