@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import clases.*;
-
 class Prueba1 {
-//TEST USUARIO.JAVA
+/**
+ * TEST USUARIO.JAVA
+ */
 	@Test
 	public void  TestAccederTrue() {
 
@@ -48,15 +48,18 @@ class Prueba1 {
 		assertFalse(res);
 
 	}
-	// FIN TEST USUARIO.JAVA
+	/**
+	 * FIN TEST USUARIO.JAVA
+	 */
 	
-	//TEST PRODUCTO.JAVA
+	/**
+	 * TEST PRODUCTO.JAVA
+	 */
 	
 	@Test
 	public void  ExisteProductoTrue() {
 
-		Producto pro = new Producto();
-		Boolean res = pro.existeCodigo(3);
+		Boolean res = Producto.existeCodigo(1);
 
 		assertTrue(res);
 
@@ -65,8 +68,7 @@ class Prueba1 {
 	@Test
 	public void  ExisteProductoFalse() {
 
-		Producto pro = new Producto();
-		Boolean res = pro.existeCodigo(1012);
+		Boolean res = Producto.existeCodigo(1012);
 
 		assertFalse(res);
 
@@ -75,8 +77,7 @@ class Prueba1 {
 	@Test
 	public void  BorradoProductoTrue() {
 
-		Producto pro = new Producto();
-		Boolean res = pro.estaBorradoCodigo(1012);
+		Boolean res = Producto.estaBorradoCodigo(1012);
 
 		assertTrue(res);
 
@@ -85,22 +86,24 @@ class Prueba1 {
 	@Test
 	public void  BorradoProductoFalse() {
 
-		Producto pro = new Producto();
-		Boolean res = pro.estaBorradoCodigo(3);
+		Boolean res = Producto.estaBorradoCodigo(1);
 
 		assertFalse(res);
 
 	}
 	
-	// FIN TEST PRODUCTO.JAVA
+	/**
+	 * FIN TEST PRODUCTO.JAVA
+	 */
 	
-	// TEST PROVEEDOR.JAVA
+	/**
+	 * TEST PROVEEDOR.JAVA
+	 */
 	
 	@Test
 	public void  ExisteCIFTrue() {
 
-		Proveedor prov = new Proveedor();
-		Boolean res = prov.existeCif("A – 76387789");
+		Boolean res = Proveedor.existeCif("025361-3137");
 
 		assertTrue(res);
 
@@ -109,8 +112,7 @@ class Prueba1 {
 	@Test
 	public void  ExisteCIFFalse() {
 
-		Proveedor prov = new Proveedor();
-		Boolean res = prov.existeCif("B – 76387789");
+		Boolean res = Proveedor.existeCif("B – 76387789");
 
 		assertFalse(res);
 
@@ -119,8 +121,7 @@ class Prueba1 {
 	@Test 
 	public void BorradoCIFTrue() {
 
-		Proveedor prov = new Proveedor();
-		Boolean res = prov.estaBorradoCif("B – 76387789");
+		Boolean res = Proveedor.estaBorradoCif("B – 76387789");
 
 		assertTrue(res);
 
@@ -129,12 +130,14 @@ class Prueba1 {
 	@Test
 	public void  BorradoCIFFalse() {
 
-		Proveedor prov = new Proveedor();
-		Boolean res = prov.estaBorradoCif("A – 76387789");
+		Boolean res = Proveedor.estaBorradoCif("025361-3137");
 
 		assertFalse(res);
 
 	}
 	
+	/**
+	 * FIN TEST PROVEEDOR.JAVA
+	 */
 	
 }

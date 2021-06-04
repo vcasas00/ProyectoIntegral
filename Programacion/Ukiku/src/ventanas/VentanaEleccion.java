@@ -21,17 +21,6 @@ public class VentanaEleccion extends JFrame {
 	private JPanel contentPane;
 	private JLabel lblEligeAQue_1;
 	private JButton btnProveedor;
-	private JButton btnProductos;
-
-	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { Elegir frame = new Elegir();
-	 * frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); } } });
-	 * }
-	 */
 
 	/**
 	 * Create the frame.

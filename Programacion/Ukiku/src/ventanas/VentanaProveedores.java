@@ -37,16 +37,6 @@ public class VentanaProveedores extends JFrame {
 	private JTextField textFieldCif;
 
 	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { Proveedores frame = new Proveedores();
-	 * frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); } } });
-	 * }
-	 */
-
-	/**
 	 * Create the frame.
 	 */
 	public VentanaProveedores() {

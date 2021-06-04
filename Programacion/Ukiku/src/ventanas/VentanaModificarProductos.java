@@ -35,16 +35,6 @@ public class VentanaModificarProductos extends JFrame {
 	private JTextField textFieldCodigo;
 
 	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { VentanaInsertarProductos frame = new
-	 * VentanaInsertarProductos(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
-	/**
 	 * Create the frame.
 	 */
 	public VentanaModificarProductos() {
