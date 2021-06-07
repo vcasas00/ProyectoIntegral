@@ -101,8 +101,6 @@ public class Usuario {
 
 		}
 
-		c.desconectar();
-
 		return acceso;
 
 	}
@@ -226,7 +224,7 @@ public class Usuario {
 
 			for (int i = 0; i < nombre.length(); i++) {
 
-				nom = contraseña.charAt(i);
+				nom = nombre.charAt(i);
 
 				String nomValor = String.valueOf(nom);
 

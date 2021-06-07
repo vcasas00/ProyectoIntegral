@@ -41,9 +41,10 @@ public class VentanaRegistro extends JFrame {
 	 * registro.
 	 */
 	public VentanaRegistro() {
+		setResizable(false);
 		setTitle("Registro - Ukiku");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/img/logorene.png")));
-		setBackground(Color.CYAN);
+		setBackground(Color.WHITE);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 403, 300);
 		contentPane = new JPanel();
@@ -107,7 +108,7 @@ public class VentanaRegistro extends JFrame {
 						} else {
 
 							JOptionPane.showMessageDialog(contentPane,
-									"Nombre de usuario no valida. Recuerda que el nombre de usuario debe tener como minimo: 8 Caracteres, 1 Mayuscula, 1 Minuscula y 1 Numero.");
+									"Nombre de usuario no valido. Recuerda que el nombre de usuario debe tener como minimo: 8 Caracteres, 1 Mayuscula, 1 Minuscula y 1 Numero.");
 
 						}
 
