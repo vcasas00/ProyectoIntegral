@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-06-2021 a las 07:56:32
+-- Tiempo de generación: 08-06-2021 a las 07:29:09
 -- Versión del servidor: 8.0.25-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ukiku_bd`
 --
+CREATE DATABASE IF NOT EXISTS `ukiku_bd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
+USE `ukiku_bd`;
 
 -- --------------------------------------------------------
 
@@ -42,7 +44,35 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`Nombre`, `Codigo`, `Categoría`, `Precio`, `Stock`, `Cif_proveedor`) VALUES
-('Papel Higienico', 1, 'Hogar', 22, 100, '025361-3137');
+('Pantalla LG 40\"', 2, 'Televisores', 250, 125, '025361-3137'),
+('Pantalla Samsung 60\"', 3, 'Televisores', 299, 200, '025361-3137'),
+('Pantalla HP 23\"', 4, 'Televisores', 120, 50, '025361-3137'),
+('Nevera GE', 5, 'Electrodomésticos', 190, 33, '076643-7248'),
+('Nevera BOSCH', 6, 'Electrodomésticos', 400, 66, '076643-7248'),
+('Nevera Samsung', 7, 'Electrodomésticos', 399, 99, '076643-7248'),
+('Nevera Maytag', 8, 'Electrodomésticos', 199, 45, '076643-7248'),
+('Horno - Balay', 9, 'Electrodomésticos', 329, 71, '148665-3403'),
+('Horno - Teka', 10, 'Electrodomésticos', 229, 70, '148665-3403'),
+('Horno - Zanussi', 11, 'Electrodomésticos', 380, 12, '148665-3403'),
+('Horno - Taurus', 12, 'Electrodomésticos', 120, 30, '148665-3403'),
+('Microondas - Samsung', 13, 'Electrodomésticos', 118, 100, '173944-2430'),
+('Microondas - OK', 14, 'Electrodomésticos', 80, 40, '173944-2430'),
+('Microondas - Whirlpool', 15, 'Electrodomésticos', 99, 35, '173944-2430'),
+('Sofá-Cama Intex ', 17, 'Muebles', 70, 40, '256708-8766'),
+('Sofá Velvet', 18, 'Muebles', 190, 6, '256708-8766'),
+('Sofá Rubik', 19, 'Muebles', 720, 2, '256708-8766'),
+('Sofá-Cama Komfortland', 20, 'Muebles', 200, 30, '256708-8766'),
+('Sofá-House Tarrington', 21, 'Muebles', 1055, 5, '256708-8766'),
+('Armario Habitdesign', 22, 'Muebles', 163, 21, '212533-7234'),
+('Armario Claris ', 23, 'Muebles', 119, 8, '212533-7234'),
+('Armario Keter', 24, 'Muebles', 60, 45, '212533-7234'),
+('Armario Eurast', 25, 'Muebles', 545, 5, '212533-7234'),
+('Armario SIK Kis', 26, 'Muebles', 30, 50, '212533-7234'),
+('Albatros Silla', 27, 'Muebles', 32, 88, '169565-3798'),
+('Aktive Silla', 28, 'Muebles', 27, 70, '169565-3798'),
+('Garballa Silla', 29, 'Muebles', 210, 50, '169565-3798'),
+('Silla Gaming Soleny', 30, 'Muebles', 350, 20, '169565-3798'),
+('Silla Gaming RGB', 31, 'Muebles', 77777, 2, '169565-3798');
 
 -- --------------------------------------------------------
 
@@ -175,7 +205,13 @@ INSERT INTO `usuario` (`id`, `Nombre`, `Contraseña`) VALUES
 (2, 'rene', 'rene'),
 (5, 'a', 'a'),
 (6, 'ximo', 'ximo'),
-(7, 'vicent', 'vicent');
+(7, 'vicent', 'vicent'),
+(11, 'user1234', 'user1234'),
+(12, 'user1', 'user1'),
+(13, 'usuario1', 'usuario1'),
+(14, 'andiamo', 'Eljefex3'),
+(15, 'aa', 'Andiamo123'),
+(16, 'Andiamo123', 'Andiamo123');
 
 --
 -- Índices para tablas volcadas
@@ -208,13 +244,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `Codigo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas
